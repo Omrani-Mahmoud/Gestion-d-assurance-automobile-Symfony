@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Garantiecomplementaires list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title" style="display: table-cell">Id</th>
+                <th class="column-title" style="display: table-cell">Compagnie</th>
+                <th class="column-title" style="display: table-cell">Nom</th>
+                <th class="column-title" style="display: table-cell">prime de base</th>
+                <th class="column-title" style="display: table-cell">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for garantieComplementaire in garantieComplementaires %}
+            <tr >
+                <td><a href="{{ path('garantiecomplementaire_show', { 'idType': garantieComplementaire.id }) }}">{{ garantieComplementaire.id }}</a></td>
+                <td>{{ garantieComplementaire.compagnie }}</td>
+                <td>{{ garantieComplementaire.nom }}</td>
+                <td>{{ garantieComplementaire.primeDeBase }}</td>
+                <td class=" last">
+
+                            <a href="{{ path('garantiecomplementaire_show', { 'idType': garantieComplementaire.id }) }}" class="btn btn-info">show</a>
+
+                            <a href="{{ path('garantiecomplementaire_edit', { 'idType': garantieComplementaire.id }) }}" class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('garantiecomplementaire_new') }}" class="btn btn-success" >Create a new garantieComplementaire</a>
+
+{% endblock %}

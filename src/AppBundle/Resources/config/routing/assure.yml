@@ -1,0 +1,23 @@
+assure_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Assure:index" }
+    methods:  GET
+
+assure_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Assure:show" }
+    methods:  GET
+
+assure_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Assure:new" }
+    methods:  [GET, POST]
+
+assure_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Assure:edit" }
+    methods:  [GET, POST]
+
+assure_delete:
+    path:     /delete/{id}
+    defaults: { _controller: "AppBundle:Assure:delete" }

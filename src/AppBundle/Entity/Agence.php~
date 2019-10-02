@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Agence
+ *
+ * @ORM\Table(name="agence", indexes={@ORM\Index(name="fk1", columns={"compagnie"})})
+ * @ORM\Entity
+ */
+class Agence
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_agence", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAgence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zone", type="string", length=150, nullable=false)
+     */
+    private $zone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="telephone", type="integer", nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_employer", type="integer", nullable=false)
+     */
+    private $nbrEmployer;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fax", type="integer", nullable=false)
+     */
+    private $fax;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="compagnie", type="integer", nullable=false)
+     */
+    private $compagnie;
+
+
+}
+

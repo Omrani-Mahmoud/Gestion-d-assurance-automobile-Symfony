@@ -1,0 +1,53 @@
+gestion_contrat_homepage:
+    path:     /
+    defaults: { _controller: GestionContratBundle:Default:index }
+user_homepage:
+    path:     /user
+    defaults: { _controller: GestionContratBundle:Default:getUser}
+comparaison_homepage:
+    path:     /comparaison
+    defaults: { _controller: GestionContratBundle:Default:comparaison}
+
+ajax_get_garanti:
+    path: /garanti/get
+    defaults: { _controller: GestionContratBundle:Default:getGaranti}
+
+assure_homepage:
+    path:     /assure
+    defaults: { _controller: GestionContratBundle:Default:assure}
+
+userinformation_homepage:
+    path:     /userinformation
+    defaults: { _controller: GestionContratBundle:Default:user}
+
+gestion_assure_liste_police:
+    path: /listeepolice
+    defaults: { _controller:  GestionContratBundle:Default:listepolice}
+
+gestion_assure_liste_vehicule:
+    path: /listevehicule
+    defaults: { _controller:  GestionContratBundle:Default:listevehicule}
+
+gestion_assure_liste_avenant:
+    path: /listeavenant
+    defaults: { _controller:  GestionContratBundle:Default:listeavenantpolice}
+
+gestion_assure_liste_temoin:
+    path: /listetemoin
+    defaults: { _controller:  GestionContratBundle:Default:listetemoin}
+
+gestion_assure_liste_reclamation:
+    path: /listereclamation
+    defaults: { _controller:  GestionContratBundle:Default:listereclamation}
+
+gestion_assure_liste_constat:
+    path: /listeconstat
+    defaults: { _controller:  GestionContratBundle:Default:listeconstat}
+
+assure_Profile:
+      path: /profile
+      defaults: { _controller: GestionContratBundle:Default:profile}
+
+gestion_assure_liste_sinistre:
+    path: /listesinistre
+    defaults: { _controller:  GestionContratBundle:Default:listesinistre}

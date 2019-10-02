@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Courtier</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Id</th>
+                <td>{{ courtier.id }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Nom</th>
+                <td>{{ courtier.nom }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Lieu</th>
+                <td>{{ courtier.lieu }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Commission</th>
+                <td>{{ courtier.commission }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('courtier_index') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+            <a href="{{ path('courtier_edit', { 'id': courtier.id }) }}" class="buttonPrevious btn btn-primary">Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger" >
+            {{ form_end(delete_form) }}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% form_theme edit_form 'bootstrap_4_layout.html.twig' %}
+
+{% block container %}
+    <h1>Modifier L'assure</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Modifier" class="btn btn-warning"/>
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form) }}
+    <a class="btn btn-success" href="{{ path('assure_index') }} ">Liste des assures</a>
+    <input type="submit" value="Supprimer" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
+{% endblock %}

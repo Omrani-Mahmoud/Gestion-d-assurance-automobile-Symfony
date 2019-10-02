@@ -1,0 +1,82 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rapport
+ *
+ * @ORM\Table(name="rapport", indexes={@ORM\Index(name="fk1", columns={"cin_expert"}), @ORM\Index(name="fk2", columns={"code_rec"})})
+ * @ORM\Entity
+ */
+class Rapport
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="code_rap", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codeRap;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="titre_rap", type="integer", nullable=false)
+     */
+    private $titreRap;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="detaille_rap", type="integer", nullable=false)
+     */
+    private $detailleRap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="document_rap", type="blob", length=65535, nullable=false)
+     */
+    private $documentRap;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_rap", type="date", nullable=false)
+     */
+    private $dateRap;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="temp_rap", type="time", nullable=false)
+     */
+    private $tempRap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu_rap", type="string", length=50, nullable=false)
+     */
+    private $lieuRap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin_expert", type="string", length=8, nullable=false)
+     */
+    private $cinExpert;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="code_rec", type="integer", nullable=false)
+     */
+    private $codeRec;
+
+
+}
+

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.css') }}">
+    <!-- NProgress -->
+    <link href="{{ asset('extensions/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{ asset('extensions/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('extensions/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
+          rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{ asset('extensions/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="{{ asset('css/custom.min.css') }}">
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    {{ weglot_hreflang_render() }}
+</head>
+
+
+<!-- Style loading page -->
+<style>
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+    .se-pre-con {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url({{ asset('images/drift.gif') }}) 50% 50%  rgb(249,249,249);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+
+
+<body class="nav-md">
+<div class="se-pre-con"></div>
+
+<div class="container body">
+    <div class="main_container">
+
+        {% block leftNav %}
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view" style="width:100% !important;">
+                    <div style="margin:0 auto; text-align: center; width: 100%;">
+                        {{ weglot_translate_render(2) }}
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                    <!-- /menu profile quick info -->
+                    <br/>
+                    <!-- sidebar menu -->
+                    {# ADMIISTRATEUR #}
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-group"></i>Courtier <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{ path('courtier_index') }}">Liste des courtiers</a></li>
+                                            <li><a href="{{ path('courtier_new') }}">Ajouter un courtier</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-building"></i>Compagnie <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{ path('compagnie_index') }}">Liste des compagnies</a></li>
+                                            <li><a href="{{ path('compagnie_new') }}">Ajouter une compagnie</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-user-secret"></i>Expert <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{ path('expert_index') }}">Liste des experts</a></li>
+                                            <li><a href="{{ path('expert_new') }}">Ajouter un expert</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="nav side-menu">
+                                    <li><a href="{{ path('primerc_index') }}"><i class="fa fa-money"></i>Prime RC</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {# COMPAGNIE #}
+                    {% if is_granted('ROLE_COMPAGNIE') %}
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                            <div class="menu_section">
+
+                                <ul class="nav side-menu">
+
+                                   <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                        <div class="menu_section">
+
+
+                                            <ul class="nav side-menu">
+                                                <li class=""><a href="{{ path('gestion_compagnie_home') }}">
+                                                        <i class="fa fa-home"></i> Home </a>
+                                                </li>
+
+                                                <li><a><i class="fa fa-clone"></i>Menu des listes<span
+                                                                class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+
+                                                        <li><a href="{{ path('liste_Assure') }}">Liste des Assures</a>
+                                                        </li>
+                                                        <li><a href="{{ path('Gestion_liste_Courtiers') }}">Liste des
+                                                                Courtiers</a></li>
+                                                        <li><a href="{{ path('Gestion_liste_Police') }}">Liste des
+                                                                Polices</a></li>
+                                                        <li><a href="{{ path('compagnie_liste_avenants') }}">Les
+                                                                Avenants </a></li>
+
+                                                    </ul>
+                                                </li>
+
+                                                <li><a><i class="fa fa-clone"></i>Gestion des Agences<span
+                                                                class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{ path('gestion_listAgence') }}">Liste des
+                                                                Agences</a></li>
+                                                        <li><a href="{{ path('agence_new') }}">Ajouter une Agence</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clone"></i>Gestion des Garantie
+                                                        complementaires<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href=" {{ path('gestion_listGarantie') }}">Liste des
+                                                                Garanties</a>
+                                                        </li>
+                                                        <li><a href="{{ path('garantiecomplementaire_new') }}">Ajouter
+                                                                une Garanties</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </ul>
+
+                            </div>
+                        </div>
+                    {% endif %}
+                    {# COURTIER #}
+                    {% if is_granted('ROLE_COURTIER') %}
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Gestion de Courtier</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-user"></i>Courtier <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ path('police_new') }}"><i class="fa fa-newspaper-o"></i>CRUD Contrat</a></li>
+                                        <li><a href="{{ path('compagnie_listCompagnie') }}"><i class="fa fa-institution"></i>Ajout d'une compagnie</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                        {% endif %}
+                        {# AGENT #}
+                        {% if ((is_granted('ROLE_AGENT')) or (is_granted('ROLE_AGENT_GENERAL'))) %}
+
+                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                <div class="menu_section">
+                                    <h3>Agent</h3>
+                                    <ul class="nav side-menu">
+                                        <li><a><i class="fa fa-clone"></i>gestion d'agence <span
+                                                        class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                {% if is_granted('ROLE_AGENT_GENERALE') %}
+                                                    <li><a href="{{ path('agent_index') }}"></a>CRUD agent
+                                                    </li>{% endif %}
+                                                <li><a href="{{ path('gestion_agence_reclamation') }}">liste reclamation</a></li>
+                                                <li><a href="{{ path('expert_index') }}">liste des experts</a></li>
+                                                <li><a href="{{ path('vehicule_index') }}">liste des vehicule</a></li>
+                                                <li><a href="{{ path('gestion_agence_avenant') }}">liste des avenant </a></li>
+          </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu_section">
+                                    <h3>Polices d'assurances</h3>
+                                    <ul class="nav side-menu">
+                                        <li><a href="{{ path('gestion_agence_police') }}"><i class="fa fa-home"></i> Liste des polices</a></li>
+                                        <li><a href="{{ path('gestion_agence_demandes') }}"><i class="fa fa-home"></i> Demandes de souscription</a></li>
+                                    </ul>
+                                </div>
+                                <div class="menu_section">
+                                    <h3>Ressources Humaines</h3>
+                                    <ul class="nav side-menu">
+                                        <li><a href="{{ path('gestion_agent') }}"><i class="fa fa-home"></i> Agents</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {# ASSURE #}
+                                {% if is_granted('ROLE_ASSURE') %}
+                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                <div class="menu_section">
+                                    <h3>Assure</h3>
+                                    <ul class="nav side-menu">
+                                                <li><a href="{{(path('assure_Profile'))}}" ><i class="fa fa-home"></i>Profile</a>
+                                                <li><a><i class="fa fa-clone"></i>Gestion Reclamations<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{(path('reclamation_index'))}}">Liste des Reclamations</a></li>
+                                                        <li><a href="{{(path('reclamation_new'))}}">Ajouter une Reclamation</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clone"></i>Gestion des Sinistres<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{(path('sinistre_index'))}}">Liste des Sinistres</a></li>
+                                                        <li><a href="{{(path('sinistre_new'))}}">Ajouter un sinistre</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clone"></i>Gestion des Constats<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{(path('constat_index'))}}">Liste des constats</a></li>
+                                                        <li><a href="{{(path('constat_new'))}}">Ajouter un constat</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clone"></i>Gestion des temoins<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{(path('temoin_index'))}}">Liste des temoins</a></li>
+                                                        <li><a href="{{(path('temoin_new'))}}">Ajouter un temoin</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clone"></i>Gestion des vehicules<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="{{(path('gestion_assure_liste_vehicule'))}}">Liste des vehicules</a></li>
+                                                    </ul>
+                                                </li>
+
+                                               
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {# EXPERT #}
+                    {% if is_granted('ROLE_EXPERT') %}
+
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-clone"></i>Gestion des rapports <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{ path('gestion_expert_reclamation') }}">Liste des reclamation</a></li>
+                                            <li><a href="{{ path('gestion_expert_rapport', {"idExpert":app.user.id}) }}">Afficher les rapports</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a style="width:100%" data-toggle="tooltip" data-placement="top" title="Logout"
+                           href="{{ path('fos_user_security_logout') }}">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+        {% endblock %}
+        {% block topNav %}
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="{{ asset('images/img.jpg') }}" alt="">{% if app.user %}{{ app.user.username }}{% endif %}
+                                    {#<span class=" fa fa-angle-down"></span>#}
+                                </a>
+                                {#<ul class="dropdown-menu dropdown-usermenu pull-right">#}
+                                    {#<li><a href="javascript:"> Profile</a></li>#}
+                                    {#<li>#}
+                                        {#<a href="javascript:">#}
+                                            {#<span class="badge bg-red pull-right">50%</span>#}
+                                            {#<span>Settings</span>#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                    {#<li><a href="javascript:">Help</a></li>#}
+                                    {#<li><a href="{{ path('fos_user_security_logout') }}"><i#}
+                                                    {#class="fa fa-sign-out pull-right"></i> Log Out</a></li>#}
+                                {#</ul>#}
+                            </li>
+
+                            <li role="presentation" class="dropdown">
+
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image"/></span>
+                                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image"/></span>
+                                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image"/></span>
+                                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image"/></span>
+                                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+        {% endblock %}
+        <div class="right_col" role="main">
+
+            {% block container %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('extensions/fastclick/lib/fastclick.js') }}"></script>
+<!-- NProgress -->
+<script src="{{ asset('extensions/nprogress/nprogress.js') }}"></script>
+<!-- Chart.js
+        <script src="{{ asset('extensions/Chart.js/src/chart.js') }}"></script>-->
+<!-- gauge.js -->
+<script src="{{ asset('extensions/gauge.js/dist/gauge.min.js') }}"></script>
+<!-- bootstrap-progressbar -->
+<script src="{{ asset('extensions/bootstrap-progressbar/bootstrap-progressbar.js') }}"></script>
+<!-- iCheck -->
+<script src="{{ asset('extensions/iCheck/icheck.min.js') }}"></script>
+<!-- Skycons -->
+<script src="{{ asset('extensions/skycons/skycons.js') }}"></script>
+<!-- Flot -->
+<script src="{{ asset('extensions/Flot/jquery.flot.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.time.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.stack.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.resize.js') }}"></script>
+<!-- Flot plugins -->
+<script src="{{ asset('extensions/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+<script src="{{ asset('extensions/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+<script src="{{ asset('extensions/flot.curvedlines/curvedLines.js') }}"></script>
+<!-- DateJS -->
+<script src="{{ asset('extensions/DateJS/date.js') }}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('extensions/jqvmap/dist/jquery.vmap.js') }}"></script>
+<script src="{{ asset('extensions/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+<script src="{{ asset('extensions/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{ asset('extensions/moment/moment.js') }}"></script>
+<script src="{{ asset('bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{{ asset('js/custom.min.js') }}"></script>
+
+
+<!-- Scripte loading page -->
+<script>
+    $(window).load(function() {
+
+        $(".se-pre-con").fadeOut(2000);
+    });
+</script>
+
+
+
+{% block javascripts %}
+{% endblock %}
+</body>
+
+</html>

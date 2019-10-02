@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Reclamation</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th>Daterec</th>
+                <td>{% if reclamation.dateRec %}{{ reclamation.dateRec|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            {#<tr>#}
+                {#<th>Temprec</th>#}
+                {#<td>{% if reclamation.tempRec %}{{ reclamation.tempRec|date('H:i:s') }}{% endif %}</td>#}
+            {#</tr>#}
+            <tr>
+                <th>Lieurec</th>
+                <td>{{ reclamation.lieuRec }}</td>
+            </tr>
+            <tr>
+                <th>Objetrec</th>
+                <td>{{ reclamation.objetRec }}</td>
+            </tr>
+            <tr>
+                <th>Commentairerec</th>
+                <td>{{ reclamation.commentaireRec }}</td>
+            </tr>
+            {#<tr>#}
+                {#<th>Codesinistre</th>#}
+                {#<td>{{ reclamation.codeSinistre }}</td>#}
+            {#</tr>#}
+            <tr>
+                <th>Coderec</th>
+                <td>{{ reclamation.codeRec }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            <a class="btn btn-primary"  href="{{ path('reclamation_index') }}"><i class="fa fa-bars fa-1x"  ></i>  Back to the list</a>
+
+            <a href="{{ path('reclamation_edit', { 'codeRec': reclamation.codeRec }) }}"class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}
+
+

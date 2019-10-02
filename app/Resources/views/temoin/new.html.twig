@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Temoin creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    <br><br>
+        <input type="submit" value="Create" class="btn btn-success" />
+    {{ form_end(form) }}
+
+
+            <a href="{{ path('temoin_index') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+{% endblock %}

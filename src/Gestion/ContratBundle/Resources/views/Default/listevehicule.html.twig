@@ -1,0 +1,55 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Vehicules list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+
+            <th class="column-title" style="display: table-cell;">Chassis</th>
+            <th class="column-title" style="display: table-cell;">Datecircule</th>
+            <th class="column-title" style="display: table-cell;">Puissance</th>
+            <th class="column-title" style="display: table-cell;">Carburant</th>
+            <th class="column-title" style="display: table-cell;">Nombrepneu</th>
+            <th class="column-title" style="display: table-cell;">Valvenale</th>
+            <th class="column-title" style="display: table-cell;">Primerc</th>
+            <th class="column-title" style="display: table-cell;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for v in ls %}
+            <tr>
+                <td><a href="{{ path('vehicule_show', { 'chassis': v.chassis }) }}">{{ v.chassis }}</a></td>
+                <td>{% if v.dateCircule %}{{ v.dateCircule|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ v.puissance }}</td>
+                <td>{{ v.carburant }}</td>
+                <td>{{ v.nombrePneu }}</td>
+                <td>{{ v.valVenale }}</td>
+                <td>{{ v.primeRC.prix }}</td>
+                <td class=" last">
+
+
+                    <a href="{{ path('vehicule_show', { 'chassis': v.chassis }) }}" class="btn btn-info">show</a>
+
+                    <a href="{{ path('vehicule_edit', { 'chassis': v.chassis }) }}" class="btn btn-warning">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}
+
+
+
+

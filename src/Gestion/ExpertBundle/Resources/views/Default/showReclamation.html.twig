@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <div style="position:relative;">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Save" class="btn btn-success"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('.js-datepicker').datetimepicker({
+            useCurrent: true,
+            format: 'YYYY-MM-DD'
+        });
+        $('.js-timepicker').datetimepicker({
+            useCurrent: true,
+            format: 'HH:mm'
+        });
+    </script>
+{% endblock %}
+

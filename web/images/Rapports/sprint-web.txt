@@ -1,0 +1,27 @@
+Sprint web :
+Symfony 2 :PHP Framework
+CMS/ Content Management System : Système de gestion de contenu, permettant à un ou plusieurs utilisateurs de créer, gérer le contenu d'un site Web
+ORM : Object Relational Mapper :faire les operations comme la récupération des données ou sauvegarde d’un objet.
+L’architecture MVC :modele/vue/controller.
+Projet :la structure qui englobe tout
+Bundle(module) : ce sont des unités fonctionnels de l’application
+Action :contient la logique applicative
+Template twig :est un moteur de tamplatephp.
+Route :forge le lien entre une action presente dans le controleur et une URL
+App : Contient tout ce qui concerne l’application sauf le code source, séparer le code source qui fait la logique du reste. Fichier de Config, cache, log
+Src : Contient le code PHP du projet
+Vendor : Ce répertoire contient déjà les bibliothèques de Symfony2, la bibliothèque SwiftMailer, l'ORM Doctrine, le système de templateTwig 
+	et d'autres bibliothèquesDefaults
+Web : Contient la racine du serveur web. tous les fichiers statiques et publics comme les images, les feuilles de styles et les fichiers javascript
+	 Contient aussi chaque contrôleur frontal de l’application
+Controller : Contient vos contrôleurs
+Form :Contient vos éventuels formulaires.
+Resources/ -- config/ :Contient les fichiers de configuration de votre bundle
+-- public/ :Contient les fichiers publics de votre bundle : fichiers CSS et JavaScript, images, etc. –views :Contient les vues de notre bundle, les templatesTwig.
+Tests : Contient vos éventuels tests unitaires et fonctionnels. Nous développerons sans faire de test au début
+Fos user : permettant de gérer les utilisateur d’une application ( inscription, authentification, rôles)
+Response : une classe Response qui retourne une réponse d’où l’instanciation d’un objet Response.
+Rendre : Cette méthode crée un objet de type Response avec 2 paramètres: le nom de la vue et la liste des variables à passer à cette vue
+Path :lien vers une page
+Asset :lien vers un fichier
+¥ Doctrine :c est un orm :Doctrine permet de persister des objets entiers dans votre base de données et récupérer ces objets depuis votre base de données

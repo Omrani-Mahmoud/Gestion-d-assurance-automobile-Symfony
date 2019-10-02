@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Liste des constats</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Idconstat</th>
+            <th class="column-title">Croquis</th>
+            <th class="column-title">Matriculeautrui</th>
+            <th class="column-title">Idaccident</th>
+            <th class="column-title">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for constat in constats %}
+            <tr class="headings">
+                <td><a href="{{ path('constat_show', { 'codeRec': constat.codeRec }) }}">{{ constat.codeRec }}</a>
+                </td>
+                <td>{{ constat.croquis }}</td>
+                <td>{{ constat.matriculeAutrui }}</td>
+                <td>{{ constat.codeRec }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('constat_show', { 'codeRec': constat.codeRec }) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('constat_edit', { 'codeRec': constat.codeRec }) }}">Modifier</a>
+                    <a class="btn btn-warning" href="{{ path('constat_delete', {'codeRec': constat.codeRec}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('constat_new') }}">Nouveau constat</a>
+
+{% endblock %}

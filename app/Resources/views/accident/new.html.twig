@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Accident creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" class="btn btn-primary" />
+    {{ form_end(form) }}
+
+
+            <a class="btn btn-success" href="{{ path('accident_index') }}"><i class="fa fa-bars fa-1x"  ></i>  Back to the list</a>
+ 
+{% endblock %}

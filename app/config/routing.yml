@@ -1,0 +1,43 @@
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /session
+
+administration:
+    resource: "@AdministrationBundle/Resources/config/routing.yml"
+    prefix:   /administration
+
+gestion_agence:
+    resource: "@GestionAgenceBundle/Resources/config/routing.yml"
+    prefix: /gestion/agence
+
+gest_user:
+    resource: "@GestionContratBundle/Resources/config/routing.yml"
+    prefix: /gestion/contrat
+
+gestion_expert:
+    resource: "@GestionExpertBundle/Resources/config/routing.yml"
+    prefix: /gestion/expert
+
+gestion_compagnie:
+    resource: "@GestionCompagnieBundle/Resources/config/routing.yml"
+    prefix: /gestion/compagnie
+
+gestion_courtier:
+    resource: "@GestionCourtierBundle/Resources/config/routing.yml"
+    prefix: /gestion/courtier
+
+gestion_sinistre:
+    resource: "@GestionSinistreBundle/Resources/config/routing.yml"
+    prefix: /gestion/sinistre
+
+mremi_contact_form:
+    path: /contact
+    defaults: {_controller: AppBundle:Default:contact}
+
+dh_doctrine_audit:
+    resource: "@DHDoctrineAuditBundle/Controller/"
+    type: annotation

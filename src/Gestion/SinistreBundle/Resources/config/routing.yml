@@ -1,0 +1,3 @@
+gestion_sinistre_homepage:
+    path:     /
+    defaults: { _controller: GestionSinistreBundle:Default:index }

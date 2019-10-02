@@ -1,0 +1,43 @@
+compagnie_liste_avenants:
+      path: /listeAvenant
+      defaults: { _controller: GestionCompagnieBundle:Default:listeAvenant}
+
+Gestion_liste_Courtiers:
+    path: /listeCourtier
+    defaults: { _controller: GestionCompagnieBundle:Default:listeCourtier}
+
+Gestion_liste_Police:
+    path: /listeContrat
+    defaults: { _controller: GestionCompagnieBundle:Default:listeContrat}
+
+liste_Assure:
+    path: /listeAssure
+    defaults: { _controller: GestionCompagnieBundle:Default:listeAssure}
+
+gestion_listGarantie:
+    path: /listeGarantie
+    defaults: { _controller: GestionCompagnieBundle:Default:searcheGarantie}
+
+gestion_listAgence:
+    path: /listeAgence
+    defaults: { _controller: GestionCompagnieBundle:Default:searchAgence}
+
+gestion_compagnie_home:
+    path: /
+    defaults: { _controller: GestionCompagnieBundle:Default:index }
+
+save_Assure_action:
+  path: /aa
+  defaults: { _controller: GestionCompagnieBundle:Default:ajoutAssure }
+
+save_Courtier_action:
+  path: /cc
+  defaults: { _controller: GestionCompagnieBundle:Default:ajoutCourtier }
+
+Delete_Courtier_action:
+  path: /del/{idC}/{id}
+  defaults: { _controller: GestionCompagnieBundle:Default:DeleteCourtier }
+
+
+
+

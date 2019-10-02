@@ -1,0 +1,24 @@
+courtier_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Courtier:index" }
+    methods:  GET
+
+courtier_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Courtier:show" }
+    methods:  GET
+
+courtier_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Courtier:new" }
+    methods:  [GET, POST]
+
+courtier_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Courtier:edit" }
+    methods:  [GET, POST]
+
+courtier_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Courtier:delete" }
+    methods:  DELETE

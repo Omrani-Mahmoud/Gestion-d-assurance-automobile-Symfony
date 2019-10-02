@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Detaille de l'assure</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+        <tr class="heading">
+            <th>Codeassure</th>
+            <td>{{ assure.id }}</td>
+        </tr>
+        <tr>
+            <th>Cin</th>
+            <td>{{ assure.cin }}</td>
+        </tr>
+        <tr>
+            <th>Raison_social</th>
+            <td>{{ assure.raisonsocial }}</td>
+        </tr>
+        <tr>
+            <th>Responsable_societe</th>
+            <td>{{ assure.responsablesociete }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ assure.nom }}</td>
+        </tr>
+        <tr>
+            <th>Prenom</th>
+            <td>{{ assure.prenom }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ assure.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ assure.email }}</td>
+        </tr>
+        <tr>
+            <th>Tel</th>
+            <td>{{ assure.tel }}</td>
+        </tr>
+        <tr>
+            <th>Fax</th>
+            <td>{{ assure.fax }}</td>
+        </tr>
+        <tr>
+            <th>Profession</th>
+            <td>{{ assure.profession }}</td>
+        </tr>
+        <tr>
+            <th>Dateenreg</th>
+            <td>{% if assure.dateEnreg %}{{ assure.dateEnreg|date('Y-m-d H:i:s') }}{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Supprimer" class="btn btn-danger">
+    <a class="btn btn-success" href="{{ path('assure_index') }}">Liste des assures</a>
+    <a class="btn btn-warning" href="{{ path('assure_edit', { 'id': assure.id }) }}">Modifier</a>
+    {{ form_end(delete_form) }}
+
+{% endblock %}

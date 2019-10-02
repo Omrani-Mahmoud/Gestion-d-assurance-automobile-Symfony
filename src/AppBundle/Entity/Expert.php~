@@ -1,0 +1,68 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Expert
+ *
+ * @ORM\Table(name="expert")
+ * @ORM\Entity
+ */
+class Expert
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin_exp", type="string", length=8, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $cinExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_exp", type="string", length=15, nullable=false)
+     */
+    private $passwordExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_exp", type="string", length=20, nullable=false)
+     */
+    private $nomExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom_exp", type="string", length=20, nullable=false)
+     */
+    private $prenomExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zone_exp", type="string", length=20, nullable=false)
+     */
+    private $zoneExp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel_exp", type="integer", nullable=false)
+     */
+    private $telExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_expa", type="string", length=40, nullable=false)
+     */
+    private $emailExpa;
+
+
+}
+

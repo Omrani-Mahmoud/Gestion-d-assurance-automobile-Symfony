@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+    <h1>Liste des assures </h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Cin</th>
+            <th class="column-title">Raison_social</th>
+            <th class="column-title">Responsable_societe</th>
+            <th class="column-title">Nom</th>
+            <th class="column-title">Prenom</th>
+            <th class="column-title">Adresse</th>
+            <th class="column-title">Email</th>
+            <th class="column-title">Tel</th>
+            <th class="column-title">Fax</th>
+            <th class="column-title">Profession</th>
+            <th class="column-title">Dateenreg</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for a in ls %}
+            <tr>
+                <td>{{ a.cin }}</td>
+                <td> {{ a.raisonsocial }}</td>
+                <td>{{ a.responsablesociete }}</td>
+                <td>{{ a.nom }}</td>
+                <td>{{ a.prenom }}</td>
+                <td>{{ a.adresse }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.tel }}</td>
+                <td>{{ a.fax }}</td>
+                <td>{{ a.profession }}</td>
+                <td>{% if a.dateEnreg %}{{ a.dateEnreg|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

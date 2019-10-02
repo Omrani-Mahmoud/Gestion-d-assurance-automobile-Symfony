@@ -1,0 +1,4 @@
+services:
+#    gestion_courtier.example:
+#        class: Gestion\CourtierBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

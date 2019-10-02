@@ -1,0 +1,25 @@
+constat_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Constat:index" }
+    methods:  GET
+
+constat_show:
+    path:     /{codeRec}/show
+    defaults: { _controller: "AppBundle:Constat:show" }
+    methods:  GET
+
+constat_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Constat:new" }
+    methods:  [GET, POST]
+
+constat_edit:
+    path:     /{codeRec}/edit
+    defaults: { _controller: "AppBundle:Constat:edit" }
+    methods:  [GET, DELETE, POST]
+
+constat_delete:
+    path:     /delete/{codeRec}
+    defaults: { _controller: "AppBundle:Constat:delete" }
+    methods: [DELETE, GET]
+

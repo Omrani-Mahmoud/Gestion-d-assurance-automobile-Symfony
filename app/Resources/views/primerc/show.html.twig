@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Primerc</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ primeRC.id }}</td>
+            </tr>
+            <tr>
+                <th>Puissancefiscale</th>
+                <td>{{ primeRC.puissanceFiscale }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ primeRC.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+            <a href="{{ path('primerc_index') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+            <a href="{{ path('primerc_edit', { 'id': primeRC.id }) }}" class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

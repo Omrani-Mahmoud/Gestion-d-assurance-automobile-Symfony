@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Compagnies list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title">Id</th>
+                <th class="column-title">Nomcompagnie</th>
+                <th class="column-title">Adresse</th>
+                <th class="column-title">Fixe</th>
+                <th class="column-title">Fax</th>
+                <th class="column-title">Site</th>
+                <th class="column-title">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compagnie in compagnies %}
+            <tr>
+                <td><a href="{{ path('compagnie_show', { 'id': compagnie.id }) }}">{{ compagnie.id }}</a></td>
+                <td>{{ compagnie.nomCompagnie }}</td>
+                <td>{{ compagnie.adresse }}</td>
+                <td>{{ compagnie.fixe }}</td>
+                <td>{{ compagnie.fax }}</td>
+                <td>{{ compagnie.site }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('compagnie_show', { 'id': compagnie.id }) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('compagnie_edit', { 'id': compagnie.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('compagnie_new') }}">Create a new compagnie</a>
+{% endblock %}

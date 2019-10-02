@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Temoin</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th class="column-title">Cint</th>
+                <td>{{ temoin.cint }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Nomt</th>
+                <td>{{ temoin.nomt }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Prenomt</th>
+                <td>{{ temoin.prenomt }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Telt</th>
+                <td>{{ temoin.telt }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Description</th>
+                <td>{{ temoin.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('gestion_assure_liste_temoin') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+            <a href="{{ path('temoin_edit', { 'cint': temoin.cint }) }}" class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

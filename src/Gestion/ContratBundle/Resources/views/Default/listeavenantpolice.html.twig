@@ -1,0 +1,47 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Avenantpolices list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title" style="display: table-cell">Action</th>
+            <th class="column-title" style="display: table-cell">date_effet_police</th>
+            <th class="column-title" style="display: table-cell">classe</th>
+            <th class="column-title" style="display: table-cell">coef_classe</th>
+            <th class="column-title" style="display: table-cell">codeAssure</th>
+            <th class="column-title" style="display: table-cell">agence</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for avenant in ls %}
+
+            <tr>
+                <td>{{ avenant.type }}</td>
+                <td>{{ avenant.diffs.date_effet_police.new }}</td>
+                <td>{{ avenant.diffs.classe.new }}</td>
+                <td>{{ avenant.diffs.coef_classe.new }}</td>
+                <td>{{ avenant.diffs.codeAssure.new.label }}</td>
+                <td>{{ avenant.diffs.agence.new.id }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+

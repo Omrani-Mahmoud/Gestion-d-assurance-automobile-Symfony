@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Modifier le constat</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Modifier" class="btn btn-primary"/>
+    {{ form_end(edit_form) }}
+    <a class="btn btn-warning" href="{{ path('constat_index') }}">Liste des constats</a>
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Supprimer" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
+
+{% endblock %}

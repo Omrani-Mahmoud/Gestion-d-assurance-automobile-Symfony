@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Compagnie</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr class="headings">
+                <th class="column-title">Id</th>
+                <td>{{ compagnie.id }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Nomcompagnie</th>
+                <td>{{ compagnie.nomCompagnie }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Adresse</th>
+                <td>{{ compagnie.adresse }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Fixe</th>
+                <td>{{ compagnie.fixe }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Fax</th>
+                <td>{{ compagnie.fax }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Site</th>
+                <td>{{ compagnie.site }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-12">
+        <a class="btn btn-warning" href="{{ path('compagnie_edit', { 'id': compagnie.id }) }}">Edit</a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+    </div>
+{% endblock %}

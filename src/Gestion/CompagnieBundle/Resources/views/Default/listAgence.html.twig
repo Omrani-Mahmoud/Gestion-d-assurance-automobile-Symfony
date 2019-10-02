@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block container %}
+    <h1>Agences list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Idagence</th>
+            <th class="column-title">Zone</th>
+            <th class="column-title">Telephone</th>
+            <th class="column-title">Nbremployer</th>
+            <th class="column-title">Fax</th>
+            <th class="column-title">Compagnie</th>
+            <th class="column-title">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for agence in ls %}
+            <tr>
+                <td><a href="{{ path('gestion_listAgence', { 'id': agence.idAgence }) }}">{{ agence.idAgence }}</a></td>
+                <td>{{ agence.zone }}</td>
+                <td>{{ agence.telephone }}</td>
+                <td>{{ agence.nbrEmployer }}</td>
+                <td>{{ agence.fax }}</td>
+                <td>{{ agence.compagnie }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('agence_show', { 'id': agence.idAgence }) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('agence_edit', { 'id': agence.idAgence }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

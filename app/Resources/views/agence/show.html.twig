@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Agence</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th>Idagence</th>
+                <td>{{ agence.idAgence }}</td>
+            </tr>
+            <tr>
+                <th>Zone</th>
+                <td>{{ agence.zone }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ agence.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Nbremployer</th>
+                <td>{{ agence.nbrEmployer }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ agence.fax }}</td>
+            </tr>
+            <tr>
+                <th>Compagnie</th>
+                <td>{{ agence.compagnie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+            <a class="btn btn-success" href="{{ path('gestion_listAgence') }}">Back to the list</a>
+            <a class="btn btn-warning" href="{{ path('agence_edit', { 'id': agence.idAgence }) }}">Edit</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+{% endblock %}

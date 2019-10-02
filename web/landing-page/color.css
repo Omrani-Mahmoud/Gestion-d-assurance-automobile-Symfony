@@ -1,0 +1,15 @@
+a,
+.la-line-scale,
+#nav .nav-list a.active,
+#nav .nav-list a:hover,
+.main-color {
+  color: #9b23ea;
+}
+
+.main-bg-color {
+  background-color: #9b23ea;
+}
+
+.main-border-color {
+  border-color: #9b23ea;
+}

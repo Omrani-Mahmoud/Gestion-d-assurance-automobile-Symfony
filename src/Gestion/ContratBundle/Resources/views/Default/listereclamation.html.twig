@@ -1,0 +1,57 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Reclamations list</h1>
+
+    <table class="table table-striped jambo_table bulk_action" >
+        <thead>
+        <tr class="even pointer" >
+            <th>Daterec</th>
+            <th>Temprec</th>
+            <th>Lieurec</th>
+            <th>Objetrec</th>
+            <th>Commentairerec</th>
+            <th>Codesinistre</th>
+            <th>Coderec</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in ls %}
+            <tr>
+
+                <td><a href="{{ path('reclamation_show', { 'codeRec': reclamation.codeRec }) }}">{{ reclamation.dateRec|date('Y:m:j') }}</a></td>
+                <td>{% if reclamation.tempRec %}{{ reclamation.tempRec|date('H:i:s') }}{% endif %}</td>
+                <td>{{ reclamation.lieuRec }}</td>
+                <td>{{ reclamation.objetRec }}</td>
+                <td>{{ reclamation.commentaireRec }}</td>
+                <td>{{ reclamation.codeSinistre }}</td>
+                <td>{{ reclamation.codeRec }}</td>
+                <td>
+
+                    <a class="btn btn-primary" href="{{ path('reclamation_show', { 'codeRec': reclamation.codeRec }) }}">show</a>
+
+                    <a class="btn btn-warning" href="{{ path('reclamation_edit', { 'codeRec': reclamation.codeRec }) }}">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Expert</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Cinexp</th>
+                <td>{{ expert.cinExp }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Nomexp</th>
+                <td>{{ expert.nomExp }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Prenomexp</th>
+                <td>{{ expert.prenomExp }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Zoneexp</th>
+                <td>{{ expert.zoneExp }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Telexp</th>
+                <td>{{ expert.telExp }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('expert_index') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+            <a href="{{ path('expert_edit', { 'cinExp': expert.cinExp }) }}" class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

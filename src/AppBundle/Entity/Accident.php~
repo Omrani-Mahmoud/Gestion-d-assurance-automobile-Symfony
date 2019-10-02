@@ -1,0 +1,40 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Accident
+ *
+ * @ORM\Table(name="accident")
+ * @ORM\Entity
+ */
+class Accident
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_accident", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAccident;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date_Acc", type="date", nullable=false)
+     */
+    private $dateAcc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Lieu", type="string", length=255, nullable=false)
+     */
+    private $lieu;
+
+
+}
+

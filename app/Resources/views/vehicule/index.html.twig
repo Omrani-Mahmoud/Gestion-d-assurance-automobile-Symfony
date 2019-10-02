@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Vehicules list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+
+                    <th class="column-title" style="display: table-cell;">Chassis</th>
+                <th class="column-title" style="display: table-cell;">Datecircule</th>
+                <th class="column-title" style="display: table-cell;">Puissance</th>
+                <th class="column-title" style="display: table-cell;">Carburant</th>
+                <th class="column-title" style="display: table-cell;">Nombrepneu</th>
+                <th class="column-title" style="display: table-cell;">Valvenale</th>
+                <th class="column-title" style="display: table-cell;">Refcontrat</th>
+                <th class="column-title" style="display: table-cell;">Primerc</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td><a href="{{ path('vehicule_show', { 'chassis': vehicule.chassis }) }}">{{ vehicule.chassis }}</a></td>
+                <td>{% if vehicule.dateCircule %}{{ vehicule.dateCircule|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ vehicule.puissance }}</td>
+                <td>{{ vehicule.carburant }}</td>
+                <td>{{ vehicule.nombrePneu }}</td>
+                <td>{{ vehicule.valVenale }}</td>
+                <td>{{ vehicule.primeRC.prix }}</td>
+                <td class=" last">
+
+
+                            <a href="{{ path('vehicule_show', { 'chassis': vehicule.chassis }) }}" class="btn btn-info">show</a>
+
+                            <a href="{{ path('vehicule_edit', { 'chassis': vehicule.chassis }) }}" class="btn btn-warning">edit</a>
+                   </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('vehicule_new') }}" class="btn btn-success">Create a new vehicule</a>
+
+{% endblock %}

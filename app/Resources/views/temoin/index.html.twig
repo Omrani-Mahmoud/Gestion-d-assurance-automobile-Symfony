@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Temoins list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title" style="display: table-cell;">Cint</th>
+                <th class="column-title" style="display: table-cell;">Nomt</th>
+                <th class="column-title" style="display: table-cell;">Prenomt</th>
+                <th class="column-title" style="display: table-cell;">Telt</th>
+                <th class="column-title" style="display: table-cell;">Description</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for temoin in temoins %}
+            <tr>
+                <td><a href="{{ path('temoin_show', { 'cint': temoin.cint }) }}">{{ temoin.cint }}</a></td>
+                <td>{{ temoin.nomt }}</td>
+                <td>{{ temoin.prenomt }}</td>
+                <td>{{ temoin.telt }}</td>
+                <td>{{ temoin.description }}</td>
+                <td class=" last">
+
+                            <a href="{{ path('temoin_show', { 'cint': temoin.cint }) }}" class="btn btn-info">show</a>
+
+                            <a href="{{ path('temoin_edit', { 'cint': temoin.cint }) }}" class="btn btn-warning">edit</a>
+                    </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('temoin_new') }}" class="btn btn-success">Create a new temoin</a>
+
+{% endblock %}

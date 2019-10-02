@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block container %}
+    <h1>Courtiers list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr>
+            <th class="column-title" style="display: table-cell;">Nom</th>
+            <th class="column-title" style="display: table-cell;">Lieu</th>
+            <th class="column-title" style="display: table-cell;">Commission</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for courtier in ls %}
+            <tr>
+                <td>{{ courtier.nom }}</td>
+                <td>{{ courtier.lieu }}</td>
+                <td>{{ courtier.commission }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+garantiecomplementaire_index:
+    path:     /
+    defaults: { _controller: "GestionCompagnieBundle:Default:searcheGarantie" }
+    methods:  GET
+
+garantiecomplementaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:GarantieComplementaire:show" }
+    methods:  GET
+
+garantiecomplementaire_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:GarantieComplementaire:new" }
+    methods:  [GET, POST]
+
+garantiecomplementaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:GarantieComplementaire:edit" }
+    methods:  [GET, POST]
+
+garantiecomplementaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:GarantieComplementaire:delete" }
+    methods:  DELETE

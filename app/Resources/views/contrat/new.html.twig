@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Contrat creation</h1>
+<div style="position: relative;">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Create" />
+    {{ form_end(form) }}
+</div>
+{% endblock %}
+{% block stylesheets %}
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('.js-datepicker').datetimepicker({
+            useCurrent: true
+        });
+        $('.js-datepicker-effet').datetimepicker({
+            useCurrent: true
+        });
+    </script>
+{% endblock %}

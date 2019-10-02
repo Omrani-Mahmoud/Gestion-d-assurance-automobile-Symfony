@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Rapports list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Coderap</th>
+                <th class="column-title" style="display: table-cell;">Titrerap</th>
+                <th class="column-title" style="display: table-cell;">Detaillerap</th>
+                <th class="column-title" style="display: table-cell;">Documentrap</th>
+                <th class="column-title" style="display: table-cell;">Daterap</th>
+                <th class="column-title" style="display: table-cell;">Temprap</th>
+                <th class="column-title" style="display: table-cell;">Lieurap</th>
+                <th class="column-title" style="display: table-cell;">Cinexpert</th>
+                <th class="column-title" style="display: table-cell;">Coderec</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rapport in rapports %}
+            <tr>
+                <td><a href="{{ path('rapport_show', { 'codeRap': rapport.codeRap }) }}">{{ rapport.codeRap }}</a></td>
+                <td>{{ rapport.titreRap }}</td>
+                <td>{{ rapport.detailleRap }}</td>
+                <td>{{ rapport.documentRap }}</td>
+                <td>{% if rapport.dateRap %}{{ rapport.dateRap|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if rapport.tempRap %}{{ rapport.tempRap|date('H:i:s') }}{% endif %}</td>
+                <td>{{ rapport.lieuRap }}</td>
+                <td>{{ rapport.cinExpert }}</td>
+                <td>{{ rapport.codeRec }}</td>
+                <td>
+
+                            <a href="{{ path('rapport_show', { 'codeRap': rapport.codeRap }) }}" class="btn btn-info">show</a>
+
+                            <a href="{{ path('rapport_edit', { 'codeRap': rapport.codeRap }) }}"class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('rapport_new') }}"class="btn btn-success">Create a new rapport</a>
+
+{% endblock %}

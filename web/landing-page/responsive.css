@@ -1,0 +1,97 @@
+@media (max-width: 1500px) {
+  body.boxed-v #wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .pad-top-md {
+    padding-top: 60px !important;
+  }
+  .pad-bottom-md {
+    padding-bottom: 60px !important;
+  }
+  .price-section .display-flex {
+    display: block;
+  }
+  .lead-form .input-holder:not(:first-child) {
+    width: 260px;
+  }
+  .video-section .heading {
+    font-size: 21px;
+    line-height: 35px;
+    margin: 0 0 39px;
+  }
+  .price-section .heading {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pad-top-sm {
+    padding-top: 50px !important;
+  }
+  .pad-bottom-sm {
+    padding-bottom: 40px !important;
+  }
+  .pad-top-md {
+    padding-top: 40px !important;
+  }
+  .pad-bottom-md {
+    padding-bottom: 40px !important;
+  }
+  .hidden-xs {
+    display: none;
+  }
+  #header .heading {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  #header .btn-scroll {
+    bottom: 60px;
+  }
+  #header .caption {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  #header .caption p {
+    margin: 0 0 40px;
+  }
+  .lead-form .btn-holder, .lead-form .input-holder {
+    width: 100%;
+    display: block;
+    padding: 0 0 10px;
+  }
+  .lead-form {
+    position: static;
+  }
+  .lead-form .input-holder:not(:first-child) {
+    width: 100%;
+  }
+  .test-section .display-flex {
+    display: block;
+  }
+  .price-box {
+    padding: 0 7%;
+  }
+  .video-section .text-block {
+    padding: 0;
+  }
+  .video-section .play {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: -26px 0 0;
+  }
+  .feature-list p {
+    margin: 0 0 30px;
+  }
+  .test-section blockquote {
+    padding: 30px 0 0;
+    margin: 0;
+  }
+  .price-section .heading {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}

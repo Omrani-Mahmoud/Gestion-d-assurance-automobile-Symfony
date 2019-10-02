@@ -1,0 +1,75 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+
+    role_hierarchy:
+      ROLE_COMPAGNIE: ROLE_COMPAGNIE
+      ROLE_AGENT: ROLE_AGENT
+      ROLE_EXPERT: ROLE_EXPERT
+      ROLE_ASSURE: ROLE_ASSURE
+      ROLE_COURTIER: ROLE_COURTIER
+      ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+      ROLE_AGENT_GENERAL: ROLE_AGENT_GENERAL
+
+    providers:
+        fos_userbundle:
+              id: fos_user.user_provider.username
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: true
+            form_login:
+                 login_path: fos_user_security_login
+                 check_path: fos_user_security_check
+                 #provider: fos_userbundle
+                 #default_target_path: index
+                 #always_use_default_target_path: true
+                 #use_referer: true
+                 #target_path_parameter: redirect_url
+                 #failure_path: login_failure
+                 remember_me: true
+            logout:
+                  path:   fos_user_security_logout
+                  target: /session/login
+
+    access_control:
+             - { path: ^/login$/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+             - { path: ^/gestion/compagnie, role: ROLE_COMPAGNIE }
+             - { path: ^/gestion/courtier, role: ROLE_COURTIER }
+             - { path: ^/gestion/expert, role: ROLE_EXPERT }
+             - { path: ^/gestion/contrat, role: ROLE_ASSURE }
+             - { path: ^/gestion/agence, role: ROLE_AGENT }
+             - { path: ^/gestion/agence, role: ROLE_AGENT_GENERAL }
+             - { path: ^/administration, role: ROLE_SUPER_ADMIN }
+             - { path: ^/gestion/expert, role: ROLE_EXPERT }
+             - { path: ^/compagnie, role: ROLE_SUPER_ADMIN }
+             - { path: ^/assure/reclamation, role: ROLE_ASSURE }
+             - { path: ^/constat, role: ROLE_EXPERT }
+             - { path: ^/assure, role: ROLE_AGENT }
+             - { path: ^/assure, role: ROLE_AGENT_GENERAL }
+             - { path: ^/agence, role: ROLE_COMPAGNIE }
+             - { path: ^/garantie, role: ROLE_COMPAGNIE }
+             - { path: ^/vehicule, role: ROLE_ASSURE }
+             - { path: ^/vehicule, role: ROLE_AGENT_GENERAL }
+             - { path: ^/vehicule, role: ROLE_AGENT }
+             - { path: ^/vehicule, role: ROLE_COMPAGNIE }
+             - { path: ^/temoin, role: ROLE_ASSURE }
+             - { path: ^/rapport, role: ROLE_EXPERT }
+             - { path: ^/expert, role: ROLE_SUPER_ADMIN }
+             - { path: ^/courtier, role: ROLE_SUPER_ADMIN }
+             - { path: ^/police, role: ROLE_AGENT_GENERAL }
+             - { path: ^/police, role: ROLE_AGENT }
+             - { path: ^/agent, role: ROLE_AGENT_GENERAL }
+             - { path: ^/agent, role: ROLE_AGENT }
+             - { path: ^/police, role: ROLE_COMPAGNIE }
+             - { path: ^/accident, role: ROLE_SUPER_ADMMIN }
+             - { path: ^/primerc, role: ROLE_SUPER_ADMIN }

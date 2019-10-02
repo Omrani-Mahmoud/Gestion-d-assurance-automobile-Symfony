@@ -1,0 +1,38 @@
+{% extends 'base.html.twig'%}
+{% block container %}
+    <h1>Police d'assurance list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Datesigne</th>
+            <th class="column-title">Dateecheance</th>
+            <th class="column-title">Statut</th>
+            <th class="column-title">Montant</th>
+            <th class="column-title">Classe</th>
+            <th class="column-title">Assure</th>
+            <th class="column-title">Agence</th>
+            <th class="column-title">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contrat in lsContrat %}
+            {% for c in contrat %}
+            <tr>
+                <td>{% if c.dateEffetPolice %}{{ c.dateEffetPolice|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if c.dateEcheance %}{{ c.dateEcheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ c.statut }}</td>
+                <td>{{ c.montant }}</td>
+                <td>{{ c.classe }}</td>
+                <td>{{ c.codeAssure }}</td>
+                <td>{{ c.agence.compagnie.nomCompagnie}} {{  c.agence.zone }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('police_show', { 'id': c.id }) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('police_edit', { 'id': c.id }) }}">edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

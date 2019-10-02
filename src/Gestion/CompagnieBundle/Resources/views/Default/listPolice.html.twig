@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+{% block container %}
+    <h1>Police d'assurance list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Dateecheance</th>
+            <th class="column-title">Datesigne</th>
+            <th class="column-title">Statut</th>
+            <th class="column-title">Montant</th>
+            <th class="column-title">Classe</th>
+            <th class="column-title">Assure</th>
+            <th class="column-title">Agence</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in ls %}
+            {% for contrat in c %}
+            <tr>
+                <td>{% if contrat.dateEcheance %}{{ contrat.dateEcheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ contrat.dateEffetPolice| date('Y-m-d H:i:s') }}</td>
+
+                <td>{{ contrat.statut }}</td>
+                <td>{{ contrat.montant }}</td>
+                <td>{{ contrat.classe }}</td>
+                <td>{{ contrat.codeAssure }}</td>
+                <td>{{ contrat.agence.zone }}</td>
+            </tr>
+        {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

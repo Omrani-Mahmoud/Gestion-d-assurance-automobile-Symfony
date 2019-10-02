@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8">
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set the apple mobile web app capable -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True">
+    <!-- set the apple mobile web app status bar style -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- set the description -->
+    <meta name="description" content="Exception Overflow">
+    <meta name="keywords" content="assurance, gestion">
+    <meta name="author" content="Exception Overflow">
+    <!-- Page Title -->
+    <title>Gestion Assurance - Exception Overflow</title>
+    <!-- include the site stylesheet -->
+    <link href="{{ asset('landing-page/css.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.css') }}">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="{{ asset('landing-page/plugin-resets.css') }}">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="{{ asset('landing-page/style.css') }}">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="{{ asset('landing-page/responsive.css') }}">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="{{ asset('landing-page/color.css') }}">
+    <!-- NProgress -->
+    <link href="{{ asset('extensions/nprogress/nprogress.css') }}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('select2/css/select2.min.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div id="wrapper">
+    <div class="loader-container" id="loader" style="display: none;">
+        <div class="holder">
+            <div class="spinner">
+                <div class="double-bounce1 main-bg-color"></div>
+                <div class="double-bounce2 main-bg-color"></div>
+            </div>
+        </div>
+    </div>
+    <!-- header of the page start here -->
+    <header id="header" class="pad-top-sm pad-bottom-sm">
+        <div id="bgvid" style="height: 654px;" class="vegas-container"><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in" style="transition: all 1000ms ease 0s;"><div class="vegas-video" style="background-color: rgba(0, 0, 0, 0); object-position: center center; object-fit: cover; width: 100%; height: 100%;"><img src="{{ asset('landing-page/bg.jpg') }}"/></div></div>   </div>
+        <div id="polina">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Page logo -->
+                        <div class="logo" style="color:white;margin-left:20px"><a class="btn btn-primary" href="{{ path('fos_user_security_login') }}">S'authentifier</a></div>
+                        <!-- start of caption -->
+                        <div class="container">
+                            <h1 class="heading">Contactez-nous</h1>
+                            <div class="row" style="margin:0 auto;">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <form id="contactForm" data-toggle="validator" novalidate="true">
+                                        <fieldset>
+                                            {% include 'contact.html.twig' %}
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div><!-- end of caption -->
+                        <div class="pad-top-lg hidden-xs"></div>
+                        <div class="pad-bottom-sm"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+            <a href="#" class="btn-scroll smooth" data-scroll-nav="0">Goto main</a>
+        </div>
+    </header><!-- header of the page ends here -->
+    <main id="main" data-scroll-index="0">
+    <section class="service-section text-center pad-top-md pad-bottom-md">
+        <div class="container">
+            <h2 class="heading">Souscription</h2>
+            {% block container %}
+                {% include 'GestionContratBundle:Default/Forms:Vehicule.html.twig' %}
+            {% endblock %}
+        </div>
+    </section><!-- end of service-section -->
+    </main>
+    <!-- footer of the page start here -->
+    <footer style="margin-left:0 !important;" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <p>Copyright © 2019, All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer of the page end here -->
+    <!-- Back Top of the page -->
+    <span id="back-top" class="fa fa-angle-up main-bg-color"></span>
+</div>
+<script src="{{ asset('landing-page/jquery_002.js') }}"></script>
+<script src="{{ asset('landing-page/plugins.js') }}" defer="defer"></script>
+<script src="{{ asset('landing-page/jquery.js') }}" defer="defer"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('extensions/fastclick/lib/fastclick.js') }}"></script>
+<!-- NProgress -->
+<script src="{{ asset('extensions/nprogress/nprogress.js') }}"></script>
+<!-- jQuery Smart Wizard -->
+<script src="{{ asset('extensions/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
+<script src="{{ asset('select2/js/select2.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
+

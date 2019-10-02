@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Details de constat</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+        <tr>
+            <th>Idconstat</th>
+            <td>{{ constat.codeRec }}</td>
+        </tr>
+        <tr>
+            <th>Croquis</th>
+            <td>{{ constat.croquis }}</td>
+        </tr>
+        <tr>
+            <th>Matriculeautrui</th>
+            <td>{{ constat.matriculeAutrui }}</td>
+        </tr>
+        <tr>
+            <th>Idaccident</th>
+            <td>{{ constat.codeRec }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    {{ form_start(delete_form) }}
+    <a class="btn btn-success" href="{{ path('constat_index') }}">Liste des constats</a>
+    <a class="btn btn-warning" href="{{ path('constat_edit', { 'codeRec': constat.codeRec }) }}">Modifier</a>
+    <input type="submit" value="Supprimer" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
+{% endblock %}

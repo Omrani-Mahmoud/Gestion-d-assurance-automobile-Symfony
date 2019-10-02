@@ -1,0 +1,89 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ClientPhysique
+ *
+ * @ORM\Table(name="client_physique")
+ * @ORM\Entity
+ */
+class ClientPhysique
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Code_assure", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codeAssure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CIN", type="string", length=8, nullable=false)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nom", type="string", length=20, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Prenom", type="string", length=20, nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=200, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tel", type="string", length=8, nullable=false)
+     */
+    private $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Fax", type="string", length=8, nullable=false)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Profession", type="string", length=60, nullable=false)
+     */
+    private $profession;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date_enreg", type="datetime", nullable=false)
+     */
+    private $dateEnreg = 'CURRENT_TIMESTAMP';
+
+
+}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Reclamations</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+
+        <thead>
+        <tr class="even pointer">
+            <th>Date</th>
+            <th>Lieu</th>
+            <th>Objet</th>
+            <th>Commentaire</th>
+            <th>Code</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for r in reclamation %}
+            <tr>
+                <td><a href="{{ path('reclamation_show', { 'codeRec': r.codeRec }) }}">{{ r.dateRec|date('Y:m:j') }}</a>
+                </td>
+                <td>{{ r.lieuRec }}</td>
+                <td>{{ r.objetRec }}</td>
+                <td>{{ r.commentaireRec }}</td>
+                <td>{{ r.codeRec }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('show_expert_reclamation', { 'codeRec': r.codeRec }) }}">Ajouter
+                        un rapport</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+expert_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Expert:index" }
+    methods:  GET
+
+expert_show:
+    path:     /{cinExp}/show
+    defaults: { _controller: "AppBundle:Expert:show" }
+    methods:  GET
+
+expert_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Expert:new" }
+    methods:  [GET, POST]
+
+expert_edit:
+    path:     /{cinExp}/edit
+    defaults: { _controller: "AppBundle:Expert:edit" }
+    methods:  [GET, POST]
+
+expert_delete:
+    path:     /{cinExp}/delete
+    defaults: { _controller: "AppBundle:Expert:delete" }
+    methods:  DELETE

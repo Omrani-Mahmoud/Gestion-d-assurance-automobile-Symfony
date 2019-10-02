@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Agence creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <a class="btn btn-success" href="{{ path('gestion_listAgence') }}">Back to the list</a>
+{% endblock %}

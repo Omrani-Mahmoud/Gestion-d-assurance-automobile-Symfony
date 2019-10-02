@@ -1,0 +1,82 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ClientMoral
+ *
+ * @ORM\Table(name="client_moral")
+ * @ORM\Entity
+ */
+class ClientMoral
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Code_assure", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codeAssure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Raison_social", type="string", length=20, nullable=false)
+     */
+    private $raisonSocial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Domaine_act", type="string", length=40, nullable=false)
+     */
+    private $domaineAct = 'Automobile';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=200, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Email", type="integer", nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Tel", type="integer", nullable=false)
+     */
+    private $tel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Fax", type="integer", nullable=false)
+     */
+    private $fax;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sigle", type="integer", nullable=false)
+     */
+    private $sigle;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date_enreg", type="datetime", nullable=false)
+     */
+    private $dateEnreg = 'CURRENT_TIMESTAMP';
+
+
+}
+

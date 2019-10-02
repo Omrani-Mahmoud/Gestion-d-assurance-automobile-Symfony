@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Temoin
+ *
+ * @ORM\Table(name="temoin")
+ * @ORM\Entity
+ */
+class Temoin
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CinT", type="string", length=8, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $cint;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomT", type="string", length=20, nullable=false)
+     */
+    private $nomt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PrenomT", type="string", length=20, nullable=false)
+     */
+    private $prenomt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TelT", type="string", length=20, nullable=false)
+     */
+    private $telt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Description", type="string", length=1000, nullable=true)
+     */
+    private $description;
+
+
+}
+

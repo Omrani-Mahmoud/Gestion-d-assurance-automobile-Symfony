@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block container  %}
+    <h1>Reclamation creation</h1>
+<div style="position:relative">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Create"  class="btn btn-primary"/>
+    {{ form_end(form) }}
+
+</div>
+
+
+            <a class="btn btn-success"  href="{{ path('reclamation_index') }}"><i class="fa fa-bars fa-1x"  ></i>  Back to the list</a>
+
+{% endblock %}
+{% block stylesheets %}
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('.js-datepicker').datetimepicker({
+            useCurrent: true,
+            format: 'YYYY-MM-DD'
+        });
+    </script>
+{% endblock %}

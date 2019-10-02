@@ -1,0 +1,15 @@
+gestion_expert_homepage:
+    path:     /
+    defaults: { _controller: GestionExpertBundle:Default:index }
+
+gestion_expert_reclamation:
+    path:     /liste
+    defaults: { _controller: GestionExpertBundle:Default:getReclamation }
+
+show_expert_reclamation:
+    path:     /showListe/{codeRec}
+    defaults: { _controller: GestionExpertBundle:Default:showReclamation }
+
+gestion_expert_rapport:
+    path:     /listeRapport/{idExpert}
+    defaults: { _controller: GestionExpertBundle:Default:getRapport }

@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sinistre
+ *
+ * @ORM\Table(name="sinistre")
+ * @ORM\Entity
+ */
+class Sinistre
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="code", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $code;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_declaration", type="datetime", nullable=false)
+     */
+    private $dateDeclaration;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_sinistre", type="datetime", nullable=false)
+     */
+    private $dateSinistre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu_sinistre", type="string", length=200, nullable=false)
+     */
+    private $lieuSinistre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dommage_corps", type="string", length=200, nullable=true)
+     */
+    private $dommageCorps;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dommage_materiel", type="string", length=200, nullable=true)
+     */
+    private $dommageMateriel;
+
+
+}
+

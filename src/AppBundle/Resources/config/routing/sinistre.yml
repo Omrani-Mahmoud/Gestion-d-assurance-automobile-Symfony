@@ -1,0 +1,24 @@
+sinistre_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Sinistre:index" }
+    methods:  GET
+
+sinistre_show:
+    path:     /{code}/show
+    defaults: { _controller: "AppBundle:Sinistre:show" }
+    methods:  GET
+
+sinistre_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Sinistre:new" }
+    methods:  [GET, POST]
+
+sinistre_edit:
+    path:     /{code}/edit
+    defaults: { _controller: "AppBundle:Sinistre:edit" }
+    methods:  [GET, POST]
+
+sinistre_delete:
+    path:     /{code}/delete
+    defaults: { _controller: "AppBundle:Sinistre:delete" }
+    methods:  DELETE

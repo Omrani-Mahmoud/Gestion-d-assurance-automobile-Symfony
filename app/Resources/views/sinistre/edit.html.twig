@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Sinistre edit</h1>
+    <div style="position:relative;">
+        {{ form_start(edit_form) }}
+
+
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Save" class="btn btn-success"/>
+        {{ form_end(edit_form) }}
+    </div>
+
+
+
+        <a class="btn btn-primary" href="{{ path('sinistre_index') }}"><i class="fa fa-bars fa-1x"  ></i> Back to the list</a>
+
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger" >
+            {{ form_end(delete_form) }}
+
+{% endblock %}
+{% block stylesheets %}
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('#appbundle_sinistre_dateSinistre').datetimepicker({
+            useCurrent: true
+        });
+    </script>
+{% endblock %}

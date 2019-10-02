@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block container %}
+    <h1>Rapport</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+    <thead>
+    <tr class="even pointer">
+        <th>Date</th>
+        <th>Titre</th>
+        <th>Detaille</th>
+        <th>Document</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>{{ reclamation.dateRec|date('Y:m:j') }}</td>
+        <td>{{ reclamation.titreRap }}</td>
+        <td>{{ reclamation.detailleRap }}</td>
+        <td><a href="{{ asset('images/Rapports/' ~ reclamation.imageName) }}" target="_blank">cliquer pour afficher</a></td>
+        {#<td>{{ r.dateRap|date('Y-m-d') }}</td>#}
+    </tr>
+
+    </tbody>
+    </table>
+
+{% endblock %}

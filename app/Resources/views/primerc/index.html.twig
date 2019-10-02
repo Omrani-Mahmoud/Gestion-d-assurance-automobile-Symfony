@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Primercs list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title" style="display: table-cell">Id</th>
+                <th class="column-title" style="display: table-cell;">Puissancefiscale</th>
+                <th class="column-title" style="display: table-cell;">Prix</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for primeRC in primeRCs %}
+            <tr>
+                <td><a href="{{ path('primerc_show', { 'id': primeRC.id }) }}">{{ primeRC.id }}</a></td>
+                <td>{{ primeRC.puissanceFiscale }}</td>
+                <td>{{ primeRC.prix }}</td>
+                <td class=" last">
+
+                            <a href="{{ path('primerc_show', { 'id': primeRC.id }) }}" class="btn btn-info">show</a>
+
+                            <a href="{{ path('primerc_edit', { 'id': primeRC.id }) }}" class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('primerc_new') }}" class="btn btn-success" >Create a new primeRC</a>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+accident_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Accident:index" }
+    methods:  GET
+
+accident_show:
+    path:     /{idAccident}/show
+    defaults: { _controller: "AppBundle:Accident:show" }
+    methods:  GET
+
+accident_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Accident:new" }
+    methods:  [GET, POST]
+
+accident_edit:
+    path:     /{idAccident}/edit
+    defaults: { _controller: "AppBundle:Accident:edit" }
+    methods:  [GET, POST]
+
+accident_delete:
+    path:     /{idAccident}/delete
+    defaults: { _controller: "AppBundle:Accident:delete" }
+    methods:  DELETE

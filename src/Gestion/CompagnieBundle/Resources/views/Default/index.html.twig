@@ -1,0 +1,180 @@
+{% extends 'base.html.twig' %}
+
+
+{% block container %}
+    <div class="row tile_count">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Agences</span>
+
+            <div class="count">{{ agence|length }}</div>
+
+        </div>
+
+
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Les Polices</span>
+            <div class="count green">{{ police|length-1 }}</div>
+
+        </div>
+
+
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-warning"></i> Sinisters</span>
+            <div class="count">{{ sinistre|length }}</div>
+
+        </div>
+
+
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Assures</span>
+            <div class="count">{{ assure | length }}</div>
+        </div>
+    </div>
+
+    <div class="x_content">
+
+        <div class="col-md-9 col-sm-9 col-xs-12">
+
+            <div class="profile_title">
+                <div class="col-md-6">
+
+                </div>
+            </div>
+
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab"
+                                                              data-toggle="tab" aria-expanded="true">Liste des assures
+                            en Attente</a>
+                    </li>
+                    <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab"
+                                                        data-toggle="tab" aria-expanded="false">Liste des courtiers en
+                            Attente </a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                        <!-- start recent activity -->
+                        <form method='post' action="{{ path('save_Assure_action') }}">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                <tr class="headings">
+                                    <th class="column-title">Cin</th>
+                                    <th class="column-title">Raison_social</th>
+                                    <th class="column-title">Responsable_societe</th>
+                                    <th class="column-title">Nom</th>
+                                    <th class="column-title">Prenom</th>
+                                    <th class="column-title">Adresse</th>
+                                    <th class="column-title">Email</th>
+                                    <th class="column-title">Tel</th>
+                                    <th class="column-title">Fax</th>
+                                    <th class="column-title">Profession</th>
+                                    <th class="column-title">Dateenreg</th>
+                                    <th class="column-title">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for assuDis in assureDis %}
+                                    <tr>
+                                        <td>{{ assuDis.cin }}</td>
+                                        <td>{{ assuDis.raisonsocial }}</td>
+                                        <td>{{ assuDis.responsablesociete }}</td>
+                                        <td>{{ assuDis.nom }}</td>
+                                        <td>{{ assuDis.prenom }}</td>
+                                        <td>{{ assuDis.adresse }}</td>
+                                        <td>{{ assuDis.email }}</td>
+                                        <td>{{ assuDis.tel }}</td>
+                                        <td>{{ assuDis.fax }}</td>
+                                        <td>{{ assuDis.profession }}</td>
+                                        <td>{% if assuDis.dateEnreg %}{{ assuDis.dateEnreg|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label class="">
+                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                        <input type="checkbox" class="flat" name="checked[]"
+                                                               value="{{ assuDis.id }}"
+                                                               style="position: absolute; opacity: 0;">
+                                                        <ins class="iCheck-helper"
+                                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                        </ins>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <button type="submit" class="buttonPrevious btn btn-success" name="submit_A">accepter
+                            </button>
+                        </form>
+
+
+                        <!-- end recent activity -->
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                        <!-- start user projects -->
+                        <form method='post' action="{{ path('save_Courtier_action') }}">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                <tr class="headings">
+                                    <th class="column-title">Nom</th>
+                                    <th class="column-title">Lieu</th>
+                                    <th class="column-title">Commission</th>
+                                    <th class="column-title">Action d'accepter</th>
+                                    <th class="column-title">Action de suppression</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for courtDis in courtierDis %}
+                                    <tr>
+                                        <td>{{ courtDis.nom }}</td>
+                                        <td>{{ courtDis.lieu }}</td>
+                                        <td>{{ courtDis.commission }}</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label class="">
+                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                        <input type="checkbox" class="flat" name="checkedC[]"
+                                                               value="{{ courtDis.id }}"
+                                                               style="position: absolute; opacity: 0;">
+                                                        <ins class="iCheck-helper"
+                                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                        </ins>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('Delete_Courtier_action', { 'idC': courtDis.id , 'id': id }) }}"
+                                               class="btn btn-danger">Refuser</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <button type="submit" class="buttonPrevious btn btn-success" name="submit_C">accepter
+                            </button>
+                        </form>
+                        <!-- end user projects -->
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                        <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                            Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
+                            four loko farm-to-table craft beer twee. Qui
+                            photo booth letterpress, commodo enim craft beer mlkshk </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+

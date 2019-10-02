@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Constat
+ *
+ * @ORM\Table(name="constat", indexes={@ORM\Index(name="fk1", columns={"id_accident"})})
+ * @ORM\Entity
+ */
+class Constat
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Constat", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idConstat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Croquis", type="blob", length=65535, nullable=false)
+     */
+    private $croquis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Matricule_autrui", type="string", length=255, nullable=false)
+     */
+    private $matriculeAutrui;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_accident", type="integer", nullable=false)
+     */
+    private $idAccident;
+
+
+}
+

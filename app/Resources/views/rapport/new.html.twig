@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Rapport creation</h1>
+<div style="position: relative;">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" class="btn btn-success" />
+    {{ form_end(form) }}
+
+</div>
+            <a href="{{ path('rapport_index') }}" class="btn btn-primary">Back to the list</a>
+
+{% endblock %}
+{% block stylesheets %}
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('.js-datepicker').datetimepicker({
+            useCurrent: true,
+            format: 'DD-MM-YY'
+        });
+        $('.js-timepicker').datetimepicker({
+            format: 'hh:mm'
+        });
+    </script>
+{% endblock %}
+

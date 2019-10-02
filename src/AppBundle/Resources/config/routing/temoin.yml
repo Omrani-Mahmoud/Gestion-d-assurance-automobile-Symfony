@@ -1,0 +1,24 @@
+temoin_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Temoin:index" }
+    methods:  GET
+
+temoin_show:
+    path:     /{cint}/show
+    defaults: { _controller: "AppBundle:Temoin:show" }
+    methods:  GET
+
+temoin_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Temoin:new" }
+    methods:  [GET, POST]
+
+temoin_edit:
+    path:     /{cint}/edit
+    defaults: { _controller: "AppBundle:Temoin:edit" }
+    methods:  [GET, POST]
+
+temoin_delete:
+    path:     /{cint}/delete
+    defaults: { _controller: "AppBundle:Temoin:delete" }
+    methods:  DELETE

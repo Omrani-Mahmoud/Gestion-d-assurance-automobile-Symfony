@@ -1,0 +1,37 @@
+gestion_agence_homepage:
+  path:     /
+  defaults: { _controller: GestionAgenceBundle:Default:index }
+gestion_agence_demandes:
+  path: /demandes
+  defaults: { _controller: GestionAgenceBundle:Default:demande}
+gestion_agence_reclamation:
+  path: /reclamation
+  defaults: { _controller: GestionAgenceBundle:Default:getReclamation}
+
+gestion_agence_expert:
+  path: /expert
+  defaults: { _controller: GestionAgenceBundle:Default:getExpert}
+
+gestion_agence_vehicule:
+  path: /vehicule
+  defaults: { _controller: GestionAgenceBundle:Default:getVehicule}
+
+gestion_agence_rapport:
+  path: /rapport/{codeRec}
+  defaults: { _controller: GestionAgenceBundle:Default:getRapport}
+
+gestion_agence_police:
+  path: /police
+  defaults: { _controller: GestionAgenceBundle:Default:listePolice}
+
+gestion_agence_avenant:
+  path: /avenant
+  defaults: {_controller: GestionAgenceBundle:Default:listeavenantpolice}
+
+affecter_expert_to_reclamation:
+  path: /affectReclamation
+  defaults: { _controller: GestionAgenceBundle:Default:affectExpertToReclamation }
+
+gestion_agent:
+  path: /agent
+  defaults: { _controller: GestionAgenceBundle:Default:getAgent}

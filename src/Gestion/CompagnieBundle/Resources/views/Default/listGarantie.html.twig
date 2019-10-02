@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+{% block container %}
+    <h1>Garantie complementaires list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title" style="display: table-cell">Idtype</th>
+            <th class="column-title" style="display: table-cell">Nom</th>
+            <th class="column-title" style="display: table-cell">Tarif de base</th>
+            <th class="column-title" style="display: table-cell">niveau de franchise</th>
+            <th class="column-title" style="display: table-cell">Prime de base</th>
+            <th class="column-title" style="display: table-cell">Surprime</th>
+            <th class="column-title" style="display: table-cell">Compagnie</th>
+            <th class="column-title" style="display: table-cell">Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for v  in ls %}
+            <tr >
+                <td>{{ v.id }}</td>
+                <td>{{ v.nom }}</td>
+                <td>{{ v.tarifDeBase }}</td>
+                <td>{{ v.nivFranchise }}</td>
+                <td>{{ v.primeDeBase }}</td>
+                <td>{{ v.surprime }}</td>
+                <td>{{ v.compagnie }}</td>
+                <td class=" last">
+
+                    <a href="{{ path('garantiecomplementaire_show', { 'id': v.id }) }}" class="btn btn-info">show</a>
+
+                    <a href="{{ path('garantiecomplementaire_edit', { 'id': v.id }) }}" class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

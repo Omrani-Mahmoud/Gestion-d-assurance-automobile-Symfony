@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Rapport</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+
+
+            <tr>
+                <th class="column-title" style="display: table-cell;">Coderap</th>
+                <td>{{ rapport.codeRap }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Titrerap</th>
+                <td>{{ rapport.titreRap }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Detaillerap</th>
+                <td>{{ rapport.detailleRap }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Documentrap</th>
+                <td>{{ rapport.documentRap }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Daterap</th>
+                <td>{% if rapport.dateRap %}{{ rapport.dateRap|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Temprap</th>
+                <td>{% if rapport.tempRap %}{{ rapport.tempRap|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Lieurap</th>
+                <td>{{ rapport.lieuRap }}</td>
+            </tr>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Cinexpert</th>
+                <td>{{ rapport.cinExpert }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('rapport_index') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+    <a href="{{ path('rapport_edit', { 'codeRap': rapport.codeRap }) }}" class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Vehicule</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th class="column-title">Chassis</th>
+                <td>{{ vehicule.chassis }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Datecircule</th>
+                <td>{% if vehicule.dateCircule %}{{ vehicule.dateCircule|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Puissance</th>
+                <td>{{ vehicule.puissance }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Carburant</th>
+                <td>{{ vehicule.carburant }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Nombrepneu</th>
+                <td>{{ vehicule.nombrePneu }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Valvenale</th>
+                <td>{{ vehicule.valVenale }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Refcontrat</th>
+                <td>{{ vehicule.refContrat }}</td>
+            </tr>
+            <tr>
+                <th class="column-title">Primerc</th>
+                <td>{{ vehicule.primeRC }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+            <a href="{{ path('gestion_assure_liste_vehicule') }}" class="buttonPrevious btn btn-primary">Back to the list</a>
+
+            <a href="{{ path('vehicule_edit', { 'chassis': vehicule.chassis }) }}"class="btn btn-app">Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

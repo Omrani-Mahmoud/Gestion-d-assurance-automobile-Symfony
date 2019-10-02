@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GarantiLegal
+ *
+ * @ORM\Table(name="garanti_legal")
+ * @ORM\Entity
+ */
+class GarantiLegal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="puissance_fiscale", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $puissanceFiscale;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="tarif_de_base", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $tarifDeBase;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="niv_franchise", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $nivFranchise;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prime_de_base", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $primeDeBase;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="surprime", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $surprime;
+
+
+}
+

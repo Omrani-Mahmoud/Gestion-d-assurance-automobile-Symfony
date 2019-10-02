@@ -1,0 +1,50 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Sinistres list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr>
+            <th>Datedeclaration</th>
+            <th>Datesinistre</th>
+            <th>Lieusinistre</th>
+            <th>Dommagecorps</th>
+            <th>Dommagemateriel</th>
+            <th>Code</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for sinistre in ls %}
+            <tr>
+
+                <td>{% if sinistre.dateSinistre %}{{ sinistre.dateSinistre|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ sinistre.lieuSinistre }}</td>
+                <td>{{ sinistre.dommageCorps }}</td>
+                <td>{{ sinistre.dommageMateriel }}</td>
+                <td>{{ sinistre.code }}</td>
+                <td>
+
+                    <a class="btn btn-primary" href="{{ path('sinistre_show', { 'code': sinistre.code }) }}">show</a>
+
+                    <a class="btn btn-warning" href="{{ path('sinistre_edit', { 'code': sinistre.code }) }}">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+
+
+
+

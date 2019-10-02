@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Experts list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr>
+                <th class="column-title" style="display: table-cell;">Cin</th>
+                <th class="column-title" style="display: table-cell;">Nom</th>
+                <th class="column-title" style="display: table-cell;">Prenom</th>
+                <th class="column-title" style="display: table-cell;">Zone</th>
+                <th class="column-title" style="display: table-cell;">Tel</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for expert in experts %}
+            <tr>
+                <td><a href="{{ path('expert_show', { 'cinExp': expert.cinExp }) }}">{{ expert.cinExp }}</a></td>
+                <td>{{ expert.nomExp }}</td>
+                <td>{{ expert.prenomExp }}</td>
+                <td>{{ expert.zoneExp }}</td>
+                <td>{{ expert.telExp }}</td>
+                <td>
+                            <a href="{{ path('expert_show', { 'cinExp': expert.cinExp }) }}" class="btn btn-info">show</a>
+                            <a href="{{ path('expert_edit', { 'cinExp': expert.cinExp }) }}" class="btn btn-warning">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a href="{{ path('expert_new') }}"class="btn btn-success">Create a new expert</a>
+
+{% endblock %}

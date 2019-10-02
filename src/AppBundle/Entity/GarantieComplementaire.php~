@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GarantieComplementaire
+ *
+ * @ORM\Table(name="garantie_complementaire", indexes={@ORM\Index(name="fk1", columns={"compagnie"})})
+ * @ORM\Entity
+ */
+class GarantieComplementaire
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_type", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=150, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix", type="float", precision=10, scale=3, nullable=false)
+     */
+    private $prix;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="compagnie", type="integer", nullable=false)
+     */
+    private $compagnie;
+
+
+}
+

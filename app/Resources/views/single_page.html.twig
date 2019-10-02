@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.css') }}">
+    <!-- NProgress -->
+    <link href="{{ asset('extensions/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{ asset('extensions/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('extensions/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{ asset('extensions/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('select2/css/select2.min.css') }}">
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="{{ asset('css/custom.min.css') }}">
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="login">
+{% block container %}{% endblock %}
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            {% block login_container %}{% endblock %}
+        </div>
+        <div id="register" class="animate form registration_form">
+            {% block register_container %}{% endblock %}
+        </div>
+    </div>
+</div>
+<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('extensions/fastclick/lib/fastclick.js') }}"></script>
+<!-- NProgress -->
+<script src="{{ asset('extensions/nprogress/nprogress.js') }}"></script>
+<!-- Chart.js
+        <script src="{{ asset('extensions/Chart.js/src/chart.js') }}"></script>-->
+<!-- gauge.js -->
+<script src="{{ asset('extensions/gauge.js/dist/gauge.min.js') }}"></script>
+<!-- bootstrap-progressbar -->
+<script src="{{ asset('extensions/bootstrap-progressbar/bootstrap-progressbar.js') }}"></script>
+<!-- iCheck -->
+<script src="{{ asset('extensions/iCheck/icheck.min.js') }}"></script>
+<!-- Skycons -->
+<script src="{{ asset('extensions/skycons/skycons.js') }}"></script>
+<!-- Flot -->
+<script src="{{ asset('extensions/Flot/jquery.flot.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.time.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.stack.js') }}"></script>
+<script src="{{ asset('extensions/Flot/jquery.flot.resize.js') }}"></script>
+<!-- Flot plugins -->
+<script src="{{ asset('extensions/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+<script src="{{ asset('extensions/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+<script src="{{ asset('extensions/flot.curvedlines/curvedLines.js') }}"></script>
+<!-- DateJS -->
+<script src="{{ asset('extensions/DateJS/date.js') }}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('extensions/jqvmap/dist/jquery.vmap.js') }}"></script>
+<script src="{{ asset('extensions/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+<script src="{{ asset('extensions/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{ asset('extensions/moment/moment.js') }}"></script>
+<script src="{{ asset('bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('select2/js/select2.min.js') }}"></script>
+<!-- Custom Theme Scripts -->
+<script src="{{ asset('js/custom.min.js') }}"></script>
+{% block javascripts %}
+
+{% endblock %}
+
+</body>
+</html>

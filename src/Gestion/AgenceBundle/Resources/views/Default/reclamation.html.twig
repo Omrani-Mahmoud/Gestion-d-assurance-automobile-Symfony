@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Reclamations list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="even pointer">
+            <th>Daterec</th>
+            {#<th>Temprec</th>#}
+            <th>Lieurec</th>
+            <th>Objetrec</th>
+            <th>Commentairerec</th>
+            {#<th>Codesinistre</th>#}
+            <th>Coderec</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            {% for r in reclamation %}
+                <tr id="ligne">
+                    <td>{{ r.dateRec|date('Y:m:j') }}</td>
+                    {#<td>{% if reclamation.tempRec %}{{ reclamation.tempRec|date('H:i:s') }}{% endif %}</td>#}
+                    <td>{{ r.lieuRec }}</td>
+                    <td>{{ r.objetRec }}</td>
+                    <td>{{ r.commentaireRec }}</td>
+                    {#<td>{{ reclamation.codeSinistre }}</td>#}
+                    <td>{{ r.codeRec }}</td>
+                    <td>
+                        {% if r.expert == null %}
+                        <select>
+                            <option value="0">Expert</option>
+                            {% for e in expert %}
+                                <option value="{{ r.codeRec }}:{{ e.id }}">{{ e.nomExp }}</option>
+                            {% endfor %}
+                        </select>
+                        {% else %}
+                            {% if r.titreRap %}
+                            <a class="btn btn-primary" href="{{ path('gestion_agence_rapport', {codeRec: r.codeRec}) }}">Rapport</a>
+                                {% else %}
+                                    <a disabled="" class="btn btn-primary" href="#">Rapport</a>
+                            {% endif %}
+                            {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function () {
+        $('select').on('change', function (e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            $.post('{{ path('affecter_expert_to_reclamation') }}',{ajaxParameter: valueSelected},function(response){
+                if(response.status === 200){
+                    $('#ligne').css('background-color','#29AB87');
+                }
+            },'json');
+        });
+    })
+</script>
+{% endblock %}

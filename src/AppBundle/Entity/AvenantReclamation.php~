@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AvenantReclamation
+ *
+ * @ORM\Table(name="avenant_reclamation", indexes={@ORM\Index(name="fk1", columns={"code_rec"})})
+ * @ORM\Entity
+ */
+class AvenantReclamation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CodeAvenant", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codeavenant;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateAvenant", type="date", nullable=false)
+     */
+    private $dateavenant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Description", type="string", length=255, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="code_rec", type="integer", nullable=false)
+     */
+    private $codeRec;
+
+
+}
+

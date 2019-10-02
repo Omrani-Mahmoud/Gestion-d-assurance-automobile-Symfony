@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Agents list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr class="headings">
+                <th class="column-title" style="display: table-cell;">Idagent</th>
+                <th class="column-title" style="display: table-cell;">Cin</th>
+                <th class="column-title" style="display: table-cell;">Nom</th>
+                <th class="column-title" style="display: table-cell;">Prenom</th>
+                <th class="column-title" style="display: table-cell;">Telephone</th>
+                <th class="column-title" style="display: table-cell;">Adresse</th>
+                <th class="column-title" style="display: table-cell;">Email</th>
+                <th class="column-title" style="display: table-cell;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agent in agents %}
+            <tr>
+                <td><a href="{{ path('agent_show', { 'id': agent.id }) }}">{{ agent.id }}</a></td>
+                <td>{{ agent.cin }}</td>
+                <td>{{ agent.nom }}</td>
+                <td>{{ agent.prenom }}</td>
+                <td>{{ agent.telephone }}</td>
+                <td>{{ agent.adresse }}</td>
+                <td>{{ agent.email }}</td>
+                <td>
+                    <ul>
+
+                            <a  class="btn btn-success" href="{{ path('agent_show', { 'id': agent.id }) }}" class="btn btn-info">show</a>
+
+
+                            <a class="btn btn-warning" href="{{ path('agent_edit', { 'id': agent.id }) }}" class="btn btn-warning">edit</a>
+
+                    </ul>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <a class="btn btn-warning" href="{{ path('agent_new') }}">Create a new agent</a>
+
+    </ul>
+{% endblock %}

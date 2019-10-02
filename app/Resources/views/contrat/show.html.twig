@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Police d'assurance</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr class="headings">
+                <th class="column-title">Datesigne</th>
+                <td>{% if contrat.dateEffetPolice %}{{ contrat.dateEffetPolice|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Dateecheance</th>
+                <td>{% if contrat.dateEcheance %}{{ contrat.dateEcheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Statut</th>
+                <td>{{ contrat.statut }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Montant</th>
+                <td>{{ contrat.montant }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Classe</th>
+                <td>{{ contrat.classe }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Codeassure</th>
+                <td>{{ contrat.codeAssure }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Agence</th>
+                <td>{{ contrat.agence.zone }}</td>
+            </tr>
+            <tr class="headings">
+                <th class="column-title">Id</th>
+                <td>{{ contrat.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+            <a class="btn btn-warning" href="{{ path('police_edit', { 'id': contrat.id }) }}">Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+    </ul>
+{% endblock %}

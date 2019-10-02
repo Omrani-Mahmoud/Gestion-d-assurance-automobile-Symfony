@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+    <h1>Courtiers list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr>
+            <th class="column-title" style="display: table-cell;">ID</th>
+            <th class="column-title" style="display: table-cell;">Nom</th>
+            <th class="column-title" style="display: table-cell;">Lieu</th>
+            <th class="column-title" style="display: table-cell;">Commission</th>
+            <th class="column-title" style="display: table-cell;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for courtier in courtiers %}
+            <tr>
+                <td><a href="{{ path('courtier_show', { 'id': courtier.id }) }}">{{ courtier.id }}</a></td>
+                <td>{{ courtier.nom }}</td>
+                <td>{{ courtier.lieu }}</td>
+                <td>{{ courtier.commission }}</td>
+                <td>
+
+                    <a href="{{ path('courtier_show', { 'id': courtier.id }) }}" class="btn btn-info">show</a>
+
+                    <a href="{{ path('courtier_edit', { 'id': courtier.id }) }}"class="btn btn-warning">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('courtier_new') }}" class="btn btn-success">Create a new courtier</a>
+
+{% endblock %}

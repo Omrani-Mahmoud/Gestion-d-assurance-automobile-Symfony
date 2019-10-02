@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Compagnies list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Id</th>
+            <th class="column-title">Nomcompagnie</th>
+            <th class="column-title">Adresse</th>
+            <th class="column-title">Fixe</th>
+            <th class="column-title">Fax</th>
+            <th class="column-title">Site</th>
+            <th class="column-title">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <form method=post>
+            {% for compagnie in compagnies %}
+                <tr>
+                    <td><a href="{{ path('compagnie_show', { 'id': compagnie.id }) }}">{{ compagnie.id }}</a></td>
+                    <td>{{ compagnie.nomCompagnie }}</td>
+                    <td>{{ compagnie.adresse }}</td>
+                    <td>{{ compagnie.fixe }}</td>
+                    <td>{{ compagnie.fax }}</td>
+                    <td>{{ compagnie.site }}</td>
+                    <td>
+                        <input type="checkbox" name="checked[]" value="{{ compagnie.id }}">
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td><td></td>
+                <td></td><td></td>
+                <td></td>
+                <td><button class="btn btn-primary" style="float:right" type="submit">Ajouter au Courtier</button></td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+
+{% endblock %}

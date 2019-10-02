@@ -1,0 +1,75 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Vehicule
+ *
+ * @ORM\Table(name="vehicule", indexes={@ORM\Index(name="fk1", columns={"ref_contrat"}), @ORM\Index(name="fk2", columns={"garantie_legal"})})
+ * @ORM\Entity
+ */
+class Vehicule
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chassis", type="string", length=17, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $chassis;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_circule", type="datetime", nullable=false)
+     */
+    private $dateCircule;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="puissance", type="integer", nullable=false)
+     */
+    private $puissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="carburant", type="string", length=1, nullable=false)
+     */
+    private $carburant;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nombre_pneu", type="integer", nullable=false)
+     */
+    private $nombrePneu = '4';
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="val_venale", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $valVenale;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ref_contrat", type="integer", nullable=false)
+     */
+    private $refContrat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="garantie_legal", type="integer", nullable=false)
+     */
+    private $garantieLegal;
+
+
+}
+

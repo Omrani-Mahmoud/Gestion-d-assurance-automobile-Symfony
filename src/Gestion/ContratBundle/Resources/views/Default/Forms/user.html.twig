@@ -1,0 +1,123 @@
+{% extends 'indiv.html.twig' %}
+{% block container %}
+ <h1>  <p id="top" align="center">Demande de Sousccription: </p> </h1> <br>
+
+<form action="{{path('assure_homepage')}}" method="post" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+    <input type="hidden" id="num_chassis" name="num_chassis" required="required" value="{{ vehicule.chassis }}">
+    <input type="hidden" id="carburant" name="carburant" required="required" value="{{ vehicule.carburant }}">
+    <input type="hidden" id="puissance" name="puissance" required="required" value="{{ vehicule.puissance }}">
+    <input type="hidden" id="modele" name="modele" required="required" value="{{ vehicule.modele }}">
+    <input type="hidden" id="valvenal" name="valvenal" required="required" value="{{ vehicule.valVenale }}">
+    <input type="hidden" id="agence" name="agence" required="required" value="{{ agence }}">
+    {% for g in garantis %}
+        <input type="hidden" id="garantis[]" name="garantis[]" required value="{{ g }}">
+    {% endfor %}
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="first-name" name="first-name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">CIN <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="cin" name="CIN" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Adresse <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="adresse" name="Adresse" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tel <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="tel" name="Tel" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Code Permis de Conduite <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="CodeP" name="CodePermis" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Profession <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="profession" name="Profession" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Mail <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="email" id="mail" name="mail" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input id="birthdate" name="birthdate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="gender" class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <input type="radio" name="gender" value="male" data-parsley-multiple="gender"> &nbsp; Male &nbsp;
+                </label>
+                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <input type="radio" name="gender" value="female" data-parsley-multiple="gender"> Female
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="ln_solid"></div>
+    <div class="form-inline">
+        <div class="col-md-12 col-md-offset-3">
+            <button type="reset" class="btn btn-danger">reset</button>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+{% block stylesheets %}
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $('html,body').animate({
+            scrollTop: $("#top").offset().top
+        }, 'slow');
+        $('.js-datepicker').datetimepicker({
+            useCurrent: true,
+            format: 'YYYY-MM-DD'
+        });
+    </script>
+{% endblock %}
+

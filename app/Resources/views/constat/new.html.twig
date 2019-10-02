@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Nouveau constat</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Creer" class="btn btn-primary"/>
+    <a class="btn btn-success" href="{{ path('constat_index') }}">Liste des constats</a>
+    {{ form_end(form) }}
+
+{% endblock %}

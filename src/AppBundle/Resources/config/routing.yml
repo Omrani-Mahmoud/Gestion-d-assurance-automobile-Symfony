@@ -1,0 +1,59 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+app_sinistre:
+    resource: "@AppBundle/Resources/config/routing/sinistre.yml"
+    prefix:   /sinistre
+
+app_compagnie:
+    resource: "@AppBundle/Resources/config/routing/compagnie.yml"
+    prefix:   /compagnie
+
+app_reclamation:
+    resource: "@AppBundle/Resources/config/routing/reclamation.yml"
+    prefix:     /assure/reclamation
+
+app_constat:
+    resource: "@AppBundle/Resources/config/routing/constat.yml"
+    prefix:   /constat
+
+app_assure:
+    resource: "@AppBundle/Resources/config/routing/assure.yml"
+    prefix:   /assure
+
+app_agence:
+    resource: "@AppBundle/Resources/config/routing/agence.yml"
+    prefix:   /agence
+
+app_agent:
+    resource: "@AppBundle/Resources/config/routing/agent.yml"
+    prefix:   /agent
+
+app_garantiecomplementaire:
+    resource: "@AppBundle/Resources/config/routing/garantiecomplementaire.yml"
+    prefix:   /garantie
+
+app_vehicule:
+    resource: "@AppBundle/Resources/config/routing/vehicule.yml"
+    prefix:   /vehicule
+
+app_temoin:
+    resource: "@AppBundle/Resources/config/routing/temoin.yml"
+    prefix:   /temoin
+
+app_expert:
+    resource: "@AppBundle/Resources/config/routing/expert.yml"
+    prefix:   /expert
+
+app_courtier:
+    resource: "@AppBundle/Resources/config/routing/courtier.yml"
+    prefix:   /courtier
+
+app_police:
+    resource: "@AppBundle/Resources/config/routing/police.yml"
+    prefix:   /police
+
+app_primerc:
+    resource: "@AppBundle/Resources/config/routing/primerc.yml"
+    prefix:   /primerc

@@ -1,0 +1,7 @@
+gestion_courtier_homepage:
+    path:     /
+    defaults: { _controller: GestionCourtierBundle:Default:index }
+
+compagnie_listCompagnie:
+    path: /ajoutCompagnie
+    defaults: { _controller: GestionCourtierBundle:Default:ajout}

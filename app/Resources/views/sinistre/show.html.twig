@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Sinistre</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <tbody>
+            <tr>
+                <th>Datedeclaration</th>
+                <td>{% if sinistre.dateDeclaration %}{{ sinistre.dateDeclaration|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datesinistre</th>
+                <td>{% if sinistre.dateSinistre %}{{ sinistre.dateSinistre|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieusinistre</th>
+                <td>{{ sinistre.lieuSinistre }}</td>
+            </tr>
+            <tr>
+                <th>Dommagecorps</th>
+                <td>{{ sinistre.dommageCorps }}</td>
+            </tr>
+            <tr>
+                <th>Dommagemateriel</th>
+                <td>{{ sinistre.dommageMateriel }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ sinistre.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <a class="btn btn-primary" href="{{ path('sinistre_index') }}"><i class="fa fa-bars fa-1x"  ></i>  Back to the list</a>
+
+            <a href="{{ path('sinistre_edit', { 'code': sinistre.code }) }}" class="btn btn-app"><i class="fa fa-edit"></i>Edit</a>
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+
+{% endblock %}
+

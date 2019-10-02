@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Accidents list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr>
+                <th>Dateacc</th>
+                <th>Lieu</th>
+                <th>Idaccident</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accident in accidents %}
+            <tr>
+                <td><a href="{{ path('accident_show', { 'idAccident': accident.idAccident }) }}">{{ accident.dateAcc|date('Y:m:j') }}</a></td>
+                <td>{{ accident.lieu }}</td>
+                <td>{{ accident.idAccident }}</td>
+                <td>
+
+                            <a class="btn btn-primary" href="{{ path('accident_show', { 'idAccident': accident.idAccident }) }}">show</a>
+
+                            <a class="btn btn-warning" href="{{ path('accident_edit', { 'idAccident': accident.idAccident }) }}">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a class="btn btn-success" href="{{ path('accident_new') }}"><i class="fa fa-plus-square-o"></i>Create a new accident</a>
+
+
+{% endblock %}

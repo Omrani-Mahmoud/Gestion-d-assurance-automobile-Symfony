@@ -1,0 +1,24 @@
+agent_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Agent:index" }
+    methods:  GET
+
+agent_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Agent:show" }
+    methods:  GET
+
+agent_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Agent:new" }
+    methods:  [GET, POST]
+
+agent_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Agent:edit" }
+    methods:  [GET, POST]
+
+agent_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Agent:delete" }
+    methods:  DELETE

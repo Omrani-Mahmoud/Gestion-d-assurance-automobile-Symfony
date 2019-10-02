@@ -1,0 +1,50 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Police list</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+        <tr class="headings">
+            <th class="column-title">Datesigne</th>
+            <th class="column-title">Dateecheance</th>
+            <th class="column-title">Statut</th>
+            <th class="column-title">Montant</th>
+            <th class="column-title">Classe</th>
+            <th class="column-title">Assure</th>
+            <th class="column-title">Compagnie</th>
+            <th class="column-title">Ref</th>
+            <th class="column-title">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for v in ls %}
+            <tr>
+                <td><a href="{{ path('police_show', { 'id': v.id }) }}">{{ v.dateEffetPolice|date('Y-m-d H:i:s') }}</a></td>
+                <td>{% if v.dateEcheance %}{{ v.dateEcheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ v.statut }}</td>
+                <td>{{ v.montant }}</td>
+                <td>{{ v.classe }}</td>
+                <td>{{ v.codeAssure }}</td>
+                <td>Compagnie</td>
+                <td>{{ v.id }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('police_show', { 'id': v.id }) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('police_edit', { 'id': v.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,24 @@
+vehicule_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Vehicule:index" }
+    methods:  GET
+
+vehicule_show:
+    path:     /{chassis}/show
+    defaults: { _controller: "AppBundle:Vehicule:show" }
+    methods:  GET
+
+vehicule_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Vehicule:new" }
+    methods:  [GET, POST]
+
+vehicule_edit:
+    path:     /{chassis}/edit
+    defaults: { _controller: "AppBundle:Vehicule:edit" }
+    methods:  [GET, POST]
+
+vehicule_delete:
+    path:     /{chassis}/delete
+    defaults: { _controller: "AppBundle:Vehicule:delete" }
+    methods:  DELETE

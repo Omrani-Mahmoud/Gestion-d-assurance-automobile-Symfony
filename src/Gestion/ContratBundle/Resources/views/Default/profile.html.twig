@@ -1,0 +1,142 @@
+{% extends '::base.html.twig' %}
+{% block container %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>User Report <small>Activity report</small></h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+                        <h3>{% if app.user %}{{ app.user.username }}{% endif %}</h3>
+
+                        <class ="list-unstyled user_data">
+                        <li>Adresse :<i class="fa fa-map-marker user-profile-icon"> {{ adresse }}</i>
+                        </li>
+
+                        <li>Telephone : {{ tel }}</li>
+                        <li>Nom : {{ nom }}</li>
+                        <li>Prenom : {{ prenom }}</li>
+                        <li>CIN : {{ cin }}</li>
+                        <li>Fax : {{ fax }}</li>
+                        <li>Profession : {{ profession }}</li>
+                        <li>Montant : {{ montant }}</li>
+
+
+
+                        </ul>
+
+
+                        <br>
+
+
+                        <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+
+                        <!-- start of user-activity-graph -->
+
+                        <!-- end of user-activity-graph -->
+
+                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Liste avenants</a>
+                                </li>
+                                <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Liste des police</a>
+                                </li>
+
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                                    <!-- start recent activity -->
+                                    <ul class="messages">
+                                        <table class="table table-striped jambo_table bulk_action">
+                                            <thead>
+                                            <tr class="headings">
+                                                <th class="column-title" style="display: table-cell">Action</th>
+                                                <th class="column-title" style="display: table-cell">date_effet_police</th>
+                                                <th class="column-title" style="display: table-cell">classe</th>
+                                                <th class="column-title" style="display: table-cell">coef_classe</th>
+                                                <th class="column-title" style="display: table-cell">codeAssure</th>
+                                                <th class="column-title" style="display: table-cell">agence</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for avenant in ls %}
+
+                                                <tr>
+                                                    <td>{{ avenant.type }}</td>
+                                                    <td>{{ avenant.diffs.date_effet_police.new }}</td>
+                                                    <td>{{ avenant.diffs.classe.new }}</td>
+                                                    <td>{{ avenant.diffs.coef_classe.new }}</td>
+                                                    <td>{{ avenant.diffs.codeAssure.new.label }}</td>
+                                                    <td>{{ avenant.diffs.agence.new.id }}</td>
+
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+
+
+
+                                    </ul>
+                                    <!-- end recent activity -->
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+
+
+                                    <table class="table table-striped jambo_table bulk_action">
+                                        <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">Datesigne</th>
+                                            <th class="column-title">Dateecheance</th>
+                                            <th class="column-title">Statut</th>
+                                            <th class="column-title">Montant</th>
+                                            <th class="column-title">Classe</th>
+                                            <th class="column-title">Assure</th>
+                                            <th class="column-title">Compagnie</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for v in police %}
+                                            <tr>
+                                                <td>{{ v.dateEffetPolice|date('Y-m-d H:i:s') }}</td>
+                                                <td>{% if v.dateEcheance %}{{ v.dateEcheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                                <td>{{ v.statut }}</td>
+                                                <td>{{ v.montant }}</td>
+                                                <td>{{ v.classe }}</td>
+                                                <td>{{ v.codeAssure }}</td>
+                                                <td>{{ v.agence.IdAgence }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                    <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
+                                        photo booth letterpress, commodo enim craft beer mlkshk </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

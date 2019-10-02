@@ -1,0 +1,90 @@
+{% extends 'indiv.html.twig' %}
+{% block container %}
+
+    <table id="top" style="background: transparent;" class="table ">
+        <thead>
+        <tr class="even pointer" >
+            <th>Nom Compagnie</th>
+            <th>Adresse</th>
+            <th>Tel</th>
+            <th>Fax</th>
+            <th>Site</th>
+            <th>Garantis</th>
+            <th>Prix Prime RC</th>
+            <th>total</th>
+            <th>Agence</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <form action="{{ path('userinformation_homepage') }}" method="post">
+            <input type="hidden" id="num_chassis" name="num_chassis" required="required" value="{{ vehicule.chassis }}">
+            <input type="hidden" id="carburant" name="carburant" required="required" value="{{ vehicule.carburant }}">
+            <input type="hidden" id="puissance" name="puissance" required="required" value="{{ vehicule.puissance }}">
+            <input type="hidden" id="modele" name="modele" required="required" value="{{ vehicule.modele }}">
+            <input type="hidden" id="valvenal" name="valvenal" required="required" value="{{ vehicule.valVenale }}">
+            {% for c in compagnies %}
+                <tr>
+                    <td>{{ c.compagnie.nomCompagnie }}</td>
+                    <td>{{ c.compagnie.adresse }}</td>
+                    <td> {{ c.compagnie.fixe }}</td>
+                    <td>{{ c.compagnie.fax }}</td>
+                    <td>{{ c.compagnie.site }}</td>
+                    <td>
+                        <select style="width:250px" class="js-example-basic-multiple" name="garanti[]" multiple="multiple">
+                                {% for g in garantis %}
+                                    <option value="{{ g.id }}">{{ g.nom }}</option>
+                                {% endfor %}
+                        </select>
+                    </td>
+
+                    <td>{% if primerc %}{{ primerc.prix }}{% endif %}</td>
+                    <td><p id="total">{% if primerc %}{{ primerc.prix }}{% endif %}</p></td>
+                    <td>
+                        <select class="form-control" name="agence" id="agence">
+                            {% for a in c.agences %}
+                                <option value="{{ a.idAgence }}">{{ a.zone }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><input class="btn btn-warning" type="submit" value="Inscrire"></td>
+                </tr>
+            {% endfor %}
+        </form>
+        </tbody>
+
+</table>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+        $('html,body').animate({
+            scrollTop: $("#top").offset().top
+        }, 'slow');
+        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-multiple').on('select2:select', function(e){
+            garantiSelectionne = e.params.data.id;
+            valvenale = $('#valvenal').val();
+            $.post('{{ path('ajax_get_garanti') }}',{id: garantiSelectionne, valvenal: valvenale },function(response){
+                if(response.prix){
+                    prixact = Number($('#total')[0].innerText);
+                    $('#total').html(prixact + Number(response.prix));
+                }
+            },'json');
+        })
+        $('.js-example-basic-multiple').on('select2:unselect', function(e){
+            garantiSelectionne = e.params.data.id;
+            valvenale = $('#valvenal').val();
+            $.post('{{ path('ajax_get_garanti') }}',{id: garantiSelectionne, valvenal: valvenale },function(response){
+                if(response.prix){
+                    prixact = Number($('#total')[0].innerText);
+                    $('#total').html(prixact - Number(response.prix));
+                }
+            },'json');
+        })
+    });
+</script>
+{% endblock %}
+
+
+
